@@ -4,9 +4,9 @@
     return()
   }
   if(rstudioapi::versionInfo()$version < 1.3){
-    warning("You have an old version of Rstudio which may not completely support learnr tutorial.\nPlease update if possible")
+    warning("Tu versión de R es muy antigua, por favor actualiza el programa para poder ejecutar los tutoriales")
   } else {
-    packageStartupMessage("Available tutorials shold show up in the Tutorial tab.\nNormally this is in the top right pane next to the Environment and History tabs\nAlternatively, find available packages with\nlearnr::available_tutorials(package = \"data.handling\") \nand launch them with \nlearnr::run_tutorial(..., package = \"data.handling\")\nwhere ... is the name of the tutorial")
+    packageStartupMessage("Hola, este es el paquete de tutoriales de R de la Facultad de Economía, UNAM. Si deseas ejecutar el tutorial escribe\n\nlearnr::run_tutorial("tutorial", package = "EconomiaUNAM")")
 
   }
 }
