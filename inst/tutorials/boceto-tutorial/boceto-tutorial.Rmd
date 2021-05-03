@@ -9,8 +9,6 @@ runtime: shiny_prerendered
 
 ```{r setup, include=FALSE}
 library(learnr)
-remotes::install_github("rstudio-education/gradethis")
-library(gradethis)
 ```
 
 ## 1. ¿Qué es el modelo lineal simple?
@@ -59,10 +57,6 @@ modelo2 <- lm(mpg ~ wt, mtcars)
 plot(modelo2)
 ```
 
-```{r ejercicio1-code-check}
-grade_code()
-```
-
 **Ejercicio 2**
 
 <p style="text-align: justify">Descripción del ejercicio 2</p>
@@ -76,10 +70,6 @@ modelo3 <- lm(mpg ~ wt, mtcars)
 # Descripción de la respuesta
 modelo3 <- lm(mpg ~ wt, mtcars)
 summary(modelo3)
-```
-
-```{r ejercicio2-code-check}
-grade_code()
 ```
 
 ## 3. Preguntas de repaso
