@@ -27,6 +27,7 @@ modelo1
 <p style="text-align: justify">Descripción de la gráfica de los componentes del modelo lineal simple</p>
 
 ```{r modelo-plot, exercise=TRUE, exercise.setup = "modelo"}
+modelo1 <- lm(mpg ~ qsec, mtcars)
 plot(modelo1)
 ```
 
@@ -35,6 +36,7 @@ plot(modelo1)
 <p style="text-align: justify">Descripción del resumen estadístico del modelo lineal simple</p>
 
 ```{r modelo-summary, exercise=TRUE, exercise.setup = "modelo"}
+modelo1 <- lm(mpg ~ qsec, mtcars)
 summary(modelo1)
 ```
 
