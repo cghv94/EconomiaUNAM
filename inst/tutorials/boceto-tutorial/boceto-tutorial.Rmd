@@ -1,0 +1,125 @@
+---
+title: "Modelo lineal simple"
+subtitle: "[Facultad de Economía, UNAM](http://economia.unam.mx)\n"
+author: "[Cesar Hernández](https://cghv94.github.io), [Nombre Apellido](https://google.com)\n"
+date: "3/03/2021\n\n"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+library(gradethis)
+```
+
+## 1. ¿Qué es el modelo lineal simple?
+
+**Introducción**
+
+<p style="text-align: justify">Breve explicación del modelo lineal simple</p>
+
+```{r modelo, exercise=TRUE}
+modelo1 <- lm(mpg ~ qsec, mtcars)
+modelo1
+```
+
+**Componentes del modelo lineal simple**
+
+<p style="text-align: justify">Descripción de la gráfica de los componentes del modelo lineal simple</p>
+
+```{r modelo-plot, exercise=TRUE, exercise.setup = "modelo"}
+plot(modelo1)
+```
+
+**Resumen estadístico del modelo lineal simple**
+
+<p style="text-align: justify">Descripción del resumen estadístico del modelo lineal simple</p>
+
+```{r modelo-summary, exercise=TRUE, exercise.setup = "modelo"}
+summary(modelo1)
+```
+
+<p style="text-align: justify">Explicación del modelo lineal simple</p>
+
+## 2. Ejercicios
+
+**Ejercicio 1**
+
+<p style="text-align: justify">Descripción del ejercicio 1</p>
+
+```{r ejercicio1, exercise=TRUE}
+# Grafica los componentes del modelo lineal simple
+modelo2 <- lm(mpg ~ wt, mtcars)
+```
+
+```{r ejercicio1-solution}
+# Descripción de la respuesta
+modelo2 <- lm(mpg ~ wt, mtcars)
+plot(modelo2)
+```
+
+```{r ejercicio1-code-check}
+grade_code()
+```
+
+**Ejercicio 2**
+
+<p style="text-align: justify">Descripción del ejercicio 2</p>
+
+```{r ejercicio2, exercise=TRUE}
+# Obtén el resumen estadístico del modelo lineal simple
+modelo3 <- lm(mpg ~ wt, mtcars)
+```
+
+```{r ejercicio2-solution}
+# Descripción de la respuesta
+modelo3 <- lm(mpg ~ wt, mtcars)
+summary(modelo3)
+```
+
+```{r ejercicio2-code-check}
+grade_code()
+```
+
+## 3. Preguntas de repaso
+
+**¿Qué he aprendido?**
+
+<p style="text-align: justify">Hasta ahora has revisado... responde el cuestionario...</p>
+
+```{r pregunta1, echo=FALSE}
+question("¿Con qué función puedes graficar?", answer("var"), answer("median"), answer("plot", correct = TRUE), answer("summary"))
+```
+
+```{r pregunta2, echo=FALSE}
+question("¿Con qué función puedes obtener el resumen estadístico de una serie de variables?", answer("summary", correct = TRUE), answer("cor"), answer("anova"), answer("head"))
+```
+
+```{r pregunta3, echo=FALSE}
+question("¿Cuál el es código correcto para obtener un resumen estadístico del modelo 4?", answer("modelo4 <- lm(mpg ~ wt, mtcars)\n\nsummary(modelo4)", correct = TRUE), answer("modelo4 <- lm(mpg ~ wt, mtcars)\n\nplot(modelo4)"), answer("modelo4 <- lm(mpg ~ wt, mtcars)\n\ndata.frame(modelo4)"), answer("modelo4 <- lm(mpg ~ wt, mtcars)\n\ntable(modelo4)"))
+```
+
+## 4. Reflexiones finales
+
+**La utilidad de los modelos lineales**
+
+<p style="text-align: justify">Aquí algunas reflexiones finales</p>
+
+**¿Qué funciones usaste en este tutorial?**
+
+<p style="text-align: justify">Selecciona las funciones que utilizaste en este tutorial</p>
+
+```{r checkbox, echo=FALSE}
+question_checkbox(
+  "Selecciona las funciones que usaste en este tutorial",
+  answer("plot", correct = TRUE),
+  answer("summary", correct = TRUE),
+  answer("sum", message = "Creo que no usamos esta función"),
+  answer("table", message = "Creo que no usamos esta función"),
+  random_answer_order = TRUE,
+  allow_retry = TRUE,
+  try_again = "Try again"
+)
+```
+
+<p style="text-align: justify">¡Felicidades, ahora sabes cómo graficar los componentes y obtener el resumen estadístico del modelo lineal simple!</p>
