@@ -5,6 +5,8 @@ author: "[Vianney Abrego](https://github.com/Vianney98), [Dennis Popoca](https:/
 date: "04/05/2021\n\n"
 output: learnr::tutorial
 runtime: shiny_prerendered
+description: >
+  Aprende lo qué es un vector y cómo utilizarlos en el ambiente de R.
 ---
   
   ```{r setup, include=FALSE}
@@ -132,19 +134,19 @@ mis_palabras
   <p style="text-align: justify">Hasta ahora hemos aprendido qué son los vectores y algunas operaciones que se pueden realizar. Ahora responde el cuestionario que se presenta a continuación...</p>
   
 ```{r pregunta1, echo=FALSE}
-question("¿Qué es un vector?", answer("Es una colección de uno o más datos del mismo tipo", correct = TRUE), answer("Es una colección de uno o más datos de varios tipos"), answer("Son muchas colecciones de uno o más datos de diferentes tipos"), random_answer_order = TRUE)
+learnr::question("¿Qué es un vector?", answer("Es una colección de uno o más datos del mismo tipo", correct = TRUE), answer("Es una colección de uno o más datos de varios tipos"), answer("Son muchas colecciones de uno o más datos de diferentes tipos"), random_answer_order = TRUE)
 ```
 
 ```{r pregunta2, echo=FALSE}
-question("¿Cómo se define un vector en R?", answer("vector = 1, 2, 3, 4 "), answer("vector <- 1, 2, 3, 4"), answer("vector <- c(1, 2, 3, 4)", correct = TRUE, message = "Correcto, así se define un vector en R :D"), answer("vector_c<- (1, 2, 3, 4)"), random_answer_order = TRUE)
+learnr::question("¿Cómo se define un vector en R?", answer("vector = 1, 2, 3, 4 "), answer("vector <- 1, 2, 3, 4"), answer("vector <- c(1, 2, 3, 4)", correct = TRUE, message = "Correcto, así se define un vector en R :D"), answer("vector_c<- (1, 2, 3, 4)"), random_answer_order = TRUE)
 ```
 
 ```{r pregunta3, echo=FALSE}
-question("¿Cuál el es código correcto para realizar una suma de vectores?", answer("vector_a <- c(80, 60, 40, 20)\n\nvector_b <- c(10,20,30,40)\n\nsuma_vectores <- vector_a+vector_b\n\nsuma_vectores", correct = TRUE, message = "Este es el código correcto :D"), answer("vector_a <- (100, 300, 200, 150)\n\nvector_b <- (20, 30, 40, 50)\n\nsuma_vectores <- vector_a+vector_b\n\nsuma_vectores"), answer("vector_a <- c '100, 300, 200, 150'\n\nvector_b <- c '20, 30, 40, 50'\n\nsuma_vectores <- vector_a+vector_b\n\nsuma_vectores"), answer("vector_a = 100, 300, 200, 150)\n\nvector_b = (20, 30, 40, 50)\n\nsuma_vectores = vector_a+vector_b\n\nsuma_vectores"), random_answer_order = TRUE)
+learnr::question("¿Cuál el es código correcto para realizar una suma de vectores?", answer("vector_a <- c(80, 60, 40, 20)\n\nvector_b <- c(10,20,30,40)\n\nsuma_vectores <- vector_a+vector_b\n\nsuma_vectores", correct = TRUE, message = "Este es el código correcto :D"), answer("vector_a <- (100, 300, 200, 150)\n\nvector_b <- (20, 30, 40, 50)\n\nsuma_vectores <- vector_a+vector_b\n\nsuma_vectores"), answer("vector_a <- c '100, 300, 200, 150'\n\nvector_b <- c '20, 30, 40, 50'\n\nsuma_vectores <- vector_a+vector_b\n\nsuma_vectores"), answer("vector_a = 100, 300, 200, 150)\n\nvector_b = (20, 30, 40, 50)\n\nsuma_vectores = vector_a+vector_b\n\nsuma_vectores"), random_answer_order = TRUE)
 ```
 
 ```{r pregunta4, echo=FALSE}
-question("Tipo de operaciones que aprendimos a realizar de manera relacional con vectores en R", answer("Aritméticas", correct = TRUE), answer("Algebráicas"), answer("Lógicas"), random_answer_order = TRUE)
+learnr::question("Tipo de operaciones que aprendimos a realizar de manera relacional con vectores en R", answer("Aritméticas", correct = TRUE), answer("Algebráicas"), answer("Lógicas"), random_answer_order = TRUE)
 ```
 
 
@@ -159,7 +161,7 @@ question("Tipo de operaciones que aprendimos a realizar de manera relacional con
   <p style="text-align: justify">Selecciona las respuestas correctas de acuerdo a lo aprendido en el tutorial</p>
   
 ```{r checkbox, echo=FALSE}
-question_checkbox("¿Cómo se le llama al proceso de aplicar operaciones a cada uno de los elementos de un vector?",
+learnr::question_checkbox("¿Cómo se le llama al proceso de aplicar operaciones a cada uno de los elementos de un vector?",
   answer("Vectorización", correct = TRUE, message = "Muchas felicidades, si entendiste el tema 😁"),
   answer("Sumas'", message = "Debes repasar el tema"),
   answer("Vectores relacionales", message = "Debes repasar el tema"),
