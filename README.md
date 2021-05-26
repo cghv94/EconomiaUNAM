@@ -5,8 +5,6 @@
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
-![logo unam](https://4.bp.blogspot.com/-WDq8BSDo0oc/VUXi9IU94DI/AAAAAAAACI0/ZEsxVAIOOY4/s1600/UNAM-logo-vector.png)
-![logo FE](http://www.economia.unam.mx/idiomas/Img/Eco.png)
 
 El objetivo del paquete EconomiaUNAM es ...
 
