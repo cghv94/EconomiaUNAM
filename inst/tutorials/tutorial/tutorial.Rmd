@@ -5,6 +5,8 @@ author: "Cesar Hernández\n"
 date: "3/03/2021\n"
 output: learnr::tutorial
 runtime: shiny_prerendered
+description: >
+  Aprende .......
 ---
 
 ```{r setup, include=FALSE}
@@ -18,8 +20,8 @@ library(learnr)
 Modelo lineal simple
 
 ```{r modelo, exercise=TRUE}
-modelo <- lm(mpg ~ qsec, mtcars)
-plot(modelo)
+modelo <- stats::lm(mpg ~ qsec, mtcars)
+graphics::plot(modelo)
 ```
 
 ## Parte 2
@@ -29,7 +31,7 @@ plot(modelo)
 Responde la pregunta
 
 ```{r pregunta, echo=FALSE}
-question("¿Para qué sirve el software de R?",
+learnr::question("¿Para qué sirve el software de R?",
   answer("Para hacer pasteles"),
   answer("Para nada"),
   answer("Para el análisis estadístico", correct = TRUE),
@@ -44,7 +46,7 @@ question("¿Para qué sirve el software de R?",
 Responde el cuestionario
 
 ```{r cuestionario, echo=FALSE}
-quiz(
+learnr::quiz(
   question("¿Con qué función puedes graficar?", answer("var"), answer("median"), answer("plot", correct = TRUE), answer("summary")), 
   question("¿Con qué función puedes obtener el resumen estadístico de una serie de variables?", answer("summary", correct = TRUE), answer("cor"), answer("anova"), answer("head")),
   question("¿Con qué función puedes hacer una gráfica de barras?", answer("plot"), answer("pie"), answer("mean"), answer("barplot", correct = TRUE))
