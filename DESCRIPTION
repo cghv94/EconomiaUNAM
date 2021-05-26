@@ -1,21 +1,17 @@
 Package: EconomiaUNAM
 Type: Package
-<<<<<<< Updated upstream
 Title: What the Package Does (Title Case)
 Version: 0.1.0
 Author: Who wrote it
-=======
 Title: Tutoriales para aprender R en la FE,UNAM
 Version: 0.1.0.9000
 Author: Cesar Gerardo Hernández Vargas y Daniel Amieva Rodríguez
->>>>>>> Stashed changes
 Maintainer: The package maintainer <yourself@somewhere.net>
 Description: 
     El objetivo del paquete EconomiaUNAM es:
     - Desarrollar tutoriales en español para enseñar R en las clases de la FE UNAM
     - Ofrecer funciones que simplifiquen la enseñanza de temas complicados de matemáticas, estadística y econometría
     - Tener un conjunto de herramientas que faciliten el aprendizaje de R para todos los estudiantes de la Facultad de Economía
-
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
