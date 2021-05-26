@@ -8,10 +8,7 @@ Version: 0.1.0.9000
 Author: Cesar Gerardo Hernández Vargas y Daniel Amieva Rodríguez
 Maintainer: The package maintainer <yourself@somewhere.net>
 Description: 
-    El objetivo del paquete EconomiaUNAM es:
-    - Desarrollar tutoriales en español para enseñar R en las clases de la FE UNAM
-    - Ofrecer funciones que simplifiquen la enseñanza de temas complicados de matemáticas, estadística y econometría
-    - Tener un conjunto de herramientas que faciliten el aprendizaje de R para todos los estudiantes de la Facultad de Economía
+    El objetivo del paquete EconomiaUNAM es: Desarrollar tutoriales en español para enseñar R en las clases de la FE UNAM, Ofrecer funciones que simplifiquen la enseñanza de temas complicados de matemáticas, estadística y econometría, ener un conjunto de herramientas que faciliten el aprendizaje de R para todos los estudiantes de la Facultad de Economía
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
