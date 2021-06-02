@@ -25,6 +25,7 @@ Se propone una serie de tutoriales enmarcados en 12 temáticas principales
 3.5 Data frame de frecuencias (función data.frame)
 3.6 Polígono de frecuencias (función echarts)
 3.7 Ojiva (función eccharts)
+3.8 Data frame de clases y frecuencias (función table, cut y data.frame)
 
 
 4. Medidas de forma (se requiere el paquete moments)
