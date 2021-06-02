@@ -1,0 +1,73 @@
+Contenido
+
+Se propone una serie de tutoriales enmarcados en 6 temáticas principales
+
+1. Medidas de tendencia central
+1.1 Media (función mean)
+1.2 Mediana (función median)
+1.3.1 Moda (función table y max, se hace una tabla de frecuencias y se obtiene el valor máximo, max(tabla$freq)
+1.3.2 Moda (función barplot, se hace una gráfica de barras del la variable analizada)
+1.4 Resumen estadístico (función summary)
+
+
+2. Medidas de dispersión
+2.1 Graficos de dispersión (función plot)
+2.2 Histogramas (función hist)
+2.3 Desviación estándar (función sd)
+2.4 Varianza (función var, recordar que la función var genera la varianza muestal)
+
+
+3. Clases y frecuencias (se requiere el paquete echarts)
+3.1 Frecuencias absolutas (función table)
+3.2 Frecuencias absolutas acumuladas (función table y transform)
+3.3 Frecuencias relativas (función table y transform)
+3.4 Frecuencias relativas acumuladas (función table y transform)
+3.5 Data frame de frecuencias (función data.frame)
+3.6 Polígono de frecuencias (función eccharts)
+3.7 Ojiva (función eccharts)
+
+
+4. Medidas de forma (se requiere el paquete moments)
+4.1.1 Asimetría = 0, simétrica (función rnorm para crear la distribución y función skewness del paquete moments)
+4.1.2 Gráfica de distribución simétrica
+4.1.3 Asimetría > 0, positiva
+4.1.4 Gráfica asmietría poisitiva
+4.1.5 Asimetría < 0, negativa
+4.1.6 Gráfica asmietría negativa
+4.2.1 Curtosis = 3, mesocúrtica (función rnorm para crear la distribución y función kurtosis del paquete moments)
+4.2.2 Gráfica de distribución mesocúrtica
+4.2.3 Curtosis > 3, leptocúrtica
+4.2.4 Gráfica de distribución leptocúrtica
+4.2.5 Curtosis < 3, platicúrica
+4.2.6 Gráfica de distribución platicúrtica
+
+
+5. Regla empírica
+5.1 Distribución normal
+5.2 Resumen estadístico de la distribución normal
+5.3 Ejercicio 2 dados
+
+6. Probabilidad clásica
+6.1 Ejercicio moneda
+6.2 Ejercicio 2 dados
+
+
+7. Probabilidad condicional y teorema de bayes
+
+
+8. Árboles de clasificación
+
+
+9. Análisis univariado
+
+
+10. Análisis bivariado
+10.1 Gráfico de dispersión
+10.2 Coeficiende de correlación
+10.3 Coeficiende de determinación
+
+
+11. Modelo clásico de regresión lineal (MCRL)
+
+
+12. Pruebas de hipótesis del MCRL
