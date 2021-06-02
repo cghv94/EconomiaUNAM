@@ -23,7 +23,7 @@ Se propone una serie de tutoriales enmarcados en 12 temáticas principales
 3.3 Frecuencias relativas (función table y transform)
 3.4 Frecuencias relativas acumuladas (función table y transform)
 3.5 Data frame de frecuencias (función data.frame)
-3.6 Polígono de frecuencias (función eccharts)
+3.6 Polígono de frecuencias (función echarts)
 3.7 Ojiva (función eccharts)
 
 
