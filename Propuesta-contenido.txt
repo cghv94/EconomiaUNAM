@@ -48,6 +48,7 @@ Se propone una serie de tutoriales enmarcados en 12 temáticas principales
 5.2 Resumen estadístico de la distribución normal
 5.3 Ejercicio 2 dados
 
+
 6. Probabilidad clásica
 6.1 Ejercicio moneda
 6.2 Ejercicio 2 dados
