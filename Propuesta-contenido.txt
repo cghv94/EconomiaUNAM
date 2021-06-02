@@ -1,6 +1,6 @@
 Contenido
 
-Se propone una serie de tutoriales enmarcados en 6 temáticas principales
+Se propone una serie de tutoriales enmarcados en 12 temáticas principales
 
 1. Medidas de tendencia central
 1.1 Media (función mean)
