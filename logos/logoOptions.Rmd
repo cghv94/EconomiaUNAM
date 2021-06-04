@@ -1,0 +1,49 @@
+---
+title: "CreateHexSticker"
+author: "Daniel Amieva Rdz"
+date: "6/4/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(hexSticker)
+```
+
+# Opciones de logo para el paquete
+
+Los colores se escogen con referencia a [este manual](http://cimi.ccg.unam.mx/files/WebFM/Direccion/PublicFiles/Manual_CCG.pdf)
+
+### Opción 1
+
+```{r hexsticker1}
+felogo <- "logos/felogo2.png"
+felogo1 <- sticker(felogo,
+                   package = "EconomiaUNAM",
+                   p_size=16,
+                   p_color = "#D59F0F",
+                   s_x = 1,
+                   s_width = 0.4,
+                   s_height = 0.5,
+                   h_fill = "#003D79",
+                   h_color = "#D59F0F",
+                   filename = "logos/felogoOpt1.png")
+
+plot(felogo1)
+```
+
+### Opción 2
+
+```{r hexsticker1}
+felogo <- "logos/felogo4.png"
+felogo2 <- sticker(felogo, package = "EconomiaUNAM",
+                   p_size=16,
+                   p_color = "#D59F0F",
+                   s_x = 1,
+                   s_width = 0.45,
+                   s_height = 0.55,
+                   h_fill = "#003D79",
+                   h_color = "#D59F0F",
+                   filename = "logos/felogoOpt2.png")
+
+plot(felogo2)
+```
