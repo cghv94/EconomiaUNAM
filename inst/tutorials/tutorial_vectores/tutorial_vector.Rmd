@@ -9,7 +9,7 @@ description: >
   Aprende lo qué es un vector y cómo utilizarlos en el ambiente de R.
 ---
   
-  ```{r setup, include=FALSE}
+```{r setup, include=FALSE}
 library(learnr)
 ```
 
@@ -115,10 +115,10 @@ suma
   
   <p style="text-align: justify">Descripción del ejercicio 2</p>
   
-  ```{r ejercicio2, exercise=TRUE}
+```{r ejercicio2, exercise=TRUE}
 # Crea un vector con las palabras economía, UNAM, boceto, tutorial y que se llame "mis_palabras"
-mis_palabras <- 
-  ```
+#mis_palabras <- 
+```
 
 ```{r ejercicio2-solution}
 # Descripción de la respuesta
@@ -134,19 +134,53 @@ mis_palabras
   <p style="text-align: justify">Hasta ahora hemos aprendido qué son los vectores y algunas operaciones que se pueden realizar. Ahora responde el cuestionario que se presenta a continuación...</p>
   
 ```{r pregunta1, echo=FALSE}
-learnr::question("¿Qué es un vector?", answer("Es una colección de uno o más datos del mismo tipo", correct = TRUE), answer("Es una colección de uno o más datos de varios tipos"), answer("Son muchas colecciones de uno o más datos de diferentes tipos"), random_answer_order = TRUE)
+learnr::question("¿Qué es un vector?", 
+                 learnr::answer("Es una colección de uno o más datos del mismo tipo", correct = TRUE), 
+                 learnr::answer("Es una colección de uno o más datos de varios tipos"), 
+                 learnr::answer("Son muchas colecciones de uno o más datos de diferentes tipos"), 
+                 random_answer_order = TRUE)
 ```
 
 ```{r pregunta2, echo=FALSE}
-learnr::question("¿Cómo se define un vector en R?", answer("vector = 1, 2, 3, 4 "), answer("vector <- 1, 2, 3, 4"), answer("vector <- c(1, 2, 3, 4)", correct = TRUE, message = "Correcto, así se define un vector en R :D"), answer("vector_c<- (1, 2, 3, 4)"), random_answer_order = TRUE)
+learnr::question(
+  "¿Cómo se define un vector en R?",
+  learnr::answer("vector = 1, 2, 3, 4 "),
+  learnr::answer("vector <- 1, 2, 3, 4"),
+  learnr::answer("vector <- c(1, 2, 3, 4)", correct = TRUE, message = "Correcto, así se define un vector en R :D"),
+  learnr::answer("vector_c<- (1, 2, 3, 4)"),
+  random_answer_order = TRUE
+)
 ```
 
 ```{r pregunta3, echo=FALSE}
-learnr::question("¿Cuál el es código correcto para realizar una suma de vectores?", answer("vector_a <- c(80, 60, 40, 20)\n\nvector_b <- c(10,20,30,40)\n\nsuma_vectores <- vector_a+vector_b\n\nsuma_vectores", correct = TRUE, message = "Este es el código correcto :D"), answer("vector_a <- (100, 300, 200, 150)\n\nvector_b <- (20, 30, 40, 50)\n\nsuma_vectores <- vector_a+vector_b\n\nsuma_vectores"), answer("vector_a <- c '100, 300, 200, 150'\n\nvector_b <- c '20, 30, 40, 50'\n\nsuma_vectores <- vector_a+vector_b\n\nsuma_vectores"), answer("vector_a = 100, 300, 200, 150)\n\nvector_b = (20, 30, 40, 50)\n\nsuma_vectores = vector_a+vector_b\n\nsuma_vectores"), random_answer_order = TRUE)
+learnr::question(
+  "¿Cuál el es código correcto para realizar una suma de vectores?",
+  learnr::answer(
+    "vector_a <- c(80, 60, 40, 20)\n\nvector_b <- c(10,20,30,40)\n\nsuma_vectores <- vector_a+vector_b\n\nsuma_vectores",
+    correct = TRUE,
+    message = "Este es el código correcto :D"
+  ),
+  learnr::answer(
+    "vector_a <- (100, 300, 200, 150)\n\nvector_b <- (20, 30, 40, 50)\n\nsuma_vectores <- vector_a+vector_b\n\nsuma_vectores"
+  ),
+  learnr::answer(
+    "vector_a <- c '100, 300, 200, 150'\n\nvector_b <- c '20, 30, 40, 50'\n\nsuma_vectores <- vector_a+vector_b\n\nsuma_vectores"
+  ),
+  learnr::answer(
+    "vector_a = 100, 300, 200, 150)\n\nvector_b = (20, 30, 40, 50)\n\nsuma_vectores = vector_a+vector_b\n\nsuma_vectores"
+  ),
+  random_answer_order = TRUE
+)
 ```
 
 ```{r pregunta4, echo=FALSE}
-learnr::question("Tipo de operaciones que aprendimos a realizar de manera relacional con vectores en R", answer("Aritméticas", correct = TRUE), answer("Algebráicas"), answer("Lógicas"), random_answer_order = TRUE)
+learnr::question(
+  "Tipo de operaciones que aprendimos a realizar de manera relacional con vectores en R",
+  learnr::answer("Aritméticas", correct = TRUE),
+  learnr::answer("Algebráicas"),
+  learnr::answer("Lógicas"),
+  random_answer_order = TRUE
+)
 ```
 
 
@@ -162,10 +196,10 @@ learnr::question("Tipo de operaciones que aprendimos a realizar de manera relaci
   
 ```{r checkbox, echo=FALSE}
 learnr::question_checkbox("¿Cómo se le llama al proceso de aplicar operaciones a cada uno de los elementos de un vector?",
-  answer("Vectorización", correct = TRUE, message = "Muchas felicidades, si entendiste el tema 😁"),
-  answer("Sumas'", message = "Debes repasar el tema"),
-  answer("Vectores relacionales", message = "Debes repasar el tema"),
-  answer("Aritmética", message = "Debes repasar el tema"),
+ learnr::answer("Vectorización", correct = TRUE, message = "Muchas felicidades, si entendiste el tema 😁"),
+  learnr::answer("Sumas'", message = "Debes repasar el tema"),
+  learnr::answer("Vectores relacionales", message = "Debes repasar el tema"),
+  learnr::answer("Aritmética", message = "Debes repasar el tema"),
   random_answer_order = TRUE,
   allow_retry = TRUE,
   try_again = "Try again"

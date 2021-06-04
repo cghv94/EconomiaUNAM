@@ -1,4 +1,4 @@
-Contenido
+Contenido de Estadística e introducción a econometría
 
 Se propone una serie de tutoriales enmarcados en 12 temáticas principales
 
@@ -9,12 +9,13 @@ Se propone una serie de tutoriales enmarcados en 12 temáticas principales
 1.3.2 Moda (función barplot, se hace una gráfica de barras del la variable analizada)
 1.4 Resumen estadístico (función summary)
 
+MAIN LIGHT: 1 Y 2.
 
 2. Medidas de dispersión
 2.1 Graficos de dispersión (función plot)
 2.2 Histogramas (función hist)
 2.3 Desviación estándar (función sd)
-2.4 Varianza (función var, recordar que la función var genera la varianza muestal)
+2.4 Varianza (función var, recordar que la función var genera la varianza muestral)
 
 
 3. Clases y frecuencias (se requiere el paquete echarts)
@@ -43,7 +44,7 @@ Se propone una serie de tutoriales enmarcados en 12 temáticas principales
 4.2.6 Gráfica de distribución platicúrtica
 
 
-5. Regla empírica
+5. Regla empírica ¿esto es el teorema del limite central?
 5.1 Distribución normal
 5.2 Resumen estadístico de la distribución normal
 5.3 Ejercicio 2 dados
@@ -69,7 +70,11 @@ Se propone una serie de tutoriales enmarcados en 12 temáticas principales
 10.3 Coeficiende de determinación
 
 
-11. Modelo clásico de regresión lineal (MCRL)
+11. Modelo clásico de regresión lineal (MCRL) [MAIN LIGHT]
+11.1 Supuestos del modelo por mínimos cuadrados ordinarios
+11.2 Pruebas gráficas y pruebas de hipótesis
+11.3 Criterios de Selección del mejor modelo
+11.4 Más..... análisis de valores atípicos, tratamiento en caso de no normalidad y presencia de heterocedasticidad
 
 
-12. Pruebas de hipótesis del MCRL
+12. Pruebas de hipótesis del MCRL [integrar al 11]

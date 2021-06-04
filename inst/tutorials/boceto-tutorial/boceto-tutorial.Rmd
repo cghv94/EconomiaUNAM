@@ -1,17 +1,16 @@
 ---
 title: "Modelo lineal simple"
-subtitle: "[Facultad de Economía, UNAM](http://economia.unam.mx)\n"
-author: "[Cesar Hernández](https://cghv94.github.io), [Nombre Apellido](https://google.com)\n"
-date: "3/03/2021\n\n"
+subtitle: "[Facultad de Economía, UNAM](http://economia.unam.mx)"
+author: "[Cesar Hernández](https://cghv94.github.io)"
 output: learnr::tutorial
 runtime: shiny_prerendered
 description: >
   Aprende lo que es una regresión lineal y cómo llevarla a cabo en R.
 ---
-
 ```{r setup, include=FALSE}
 library(learnr)
 ```
+
 
 ## 1. ¿Qué es el modelo lineal simple?
 
@@ -38,7 +37,6 @@ graphics::plot(modelo1)
 <p style="text-align: justify">Descripción del resumen estadístico del modelo lineal simple</p>
 
 ```{r modelo-summary, exercise=TRUE, exercise.setup = "modelo"}
-modelo1 <- stats::lm(mpg ~ qsec, mtcars)
 base::summary(modelo1)
 ```
 
@@ -50,14 +48,13 @@ base::summary(modelo1)
 
 <p style="text-align: justify">Descripción del ejercicio 1</p>
 
-```{r ejercicio1, exercise=TRUE}
+```{r ejercicio1, exercise=TRUE, exercise.completion = TRUE}
 # Grafica los componentes del modelo lineal simple
 modelo2 <- stats::lm(mpg ~ wt, mtcars)
 ```
 
 ```{r ejercicio1-solution}
 # Descripción de la respuesta
-modelo2 <- stats::lm(mpg ~ wt, mtcars)
 graphics::plot(modelo2)
 ```
 
@@ -72,7 +69,6 @@ modelo3 <- stats::lm(mpg ~ wt, mtcars)
 
 ```{r ejercicio2-solution}
 # Descripción de la respuesta
-modelo3 <- stats::lm(mpg ~ wt, mtcars)
 base::summary(modelo3)
 ```
 
@@ -83,15 +79,33 @@ base::summary(modelo3)
 <p style="text-align: justify">Hasta ahora has revisado... responde el cuestionario...</p>
 
 ```{r pregunta1, echo=FALSE}
-learnr::question("¿Con qué función puedes graficar?", answer("var"), answer("median"), answer("plot", correct = TRUE), answer("summary"))
+learnr::question(
+  "¿Con qué función puedes graficar?",
+  learnr::answer("var"),
+  learnr::answer("median"),
+  learnr::answer("plot", correct = TRUE),
+  learnr::answer("summary")
+)
 ```
 
 ```{r pregunta2, echo=FALSE}
-learnr::question("¿Con qué función puedes obtener el resumen estadístico de una serie de variables?", answer("summary", correct = TRUE), answer("cor"), answer("anova"), answer("head"))
+learnr::question(
+  "¿Con qué función puedes obtener el resumen estadístico de una serie de variables?",
+  learnr::answer("summary", correct = TRUE),
+  learnr::answer("cor"),
+  learnr::answer("anova"),
+  learnr::answer("head")
+)
 ```
 
 ```{r pregunta3, echo=FALSE}
-learnr::question("¿Cuál el es código correcto para obtener un resumen estadístico del modelo 4?", answer("modelo4 <- lm(mpg ~ wt, mtcars)\n\nsummary(modelo4)", correct = TRUE), answer("modelo4 <- lm(mpg ~ wt, mtcars)\n\nplot(modelo4)"), answer("modelo4 <- lm(mpg ~ wt, mtcars)\n\ndata.frame(modelo4)"), answer("modelo4 <- lm(mpg ~ wt, mtcars)\n\ntable(modelo4)"))
+learnr::question(
+  "¿Cuál el es código correcto para obtener un resumen estadístico del modelo 4?",
+  learnr::answer("modelo4 <- lm(mpg ~ wt, mtcars)\n\nsummary(modelo4)", correct = TRUE),
+  learnr::answer("modelo4 <- lm(mpg ~ wt, mtcars)\n\nplot(modelo4)"),
+  learnr::answer("modelo4 <- lm(mpg ~ wt, mtcars)\n\ndata.frame(modelo4)"),
+  learnr::answer("modelo4 <- lm(mpg ~ wt, mtcars)\n\ntable(modelo4)")
+)
 ```
 
 ## 4. Reflexiones finales
@@ -107,10 +121,10 @@ learnr::question("¿Cuál el es código correcto para obtener un resumen estadí
 ```{r checkbox, echo=FALSE}
 learnr::question_checkbox(
   "Selecciona las funciones que usaste en este tutorial",
-  answer("plot", correct = TRUE),
-  answer("summary", correct = TRUE),
-  answer("sum", message = "Creo que no usamos esta función"),
-  answer("table", message = "Creo que no usamos esta función"),
+  learnr::answer("plot", correct = TRUE),
+  learnr::answer("summary", correct = TRUE),
+  learnr::answer("sum", message = "Creo que no usamos esta función"),
+  learnr::answer("table", message = "Creo que no usamos esta función"),
   random_answer_order = TRUE,
   allow_retry = TRUE,
   try_again = "Try again"
