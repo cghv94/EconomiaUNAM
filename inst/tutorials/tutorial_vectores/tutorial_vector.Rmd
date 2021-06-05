@@ -16,23 +16,21 @@ library(learnr)
 ## 1. ¿Qué es un Vector?
 
 **Introducción**
-  
-  <p style="text-align: justify">Breve explicación de los
-[Vectores](https://bookdown.org/jboscomendoza/r-principiantes4/vectores.html)
-</p>
-  <p>
+
   <center>
-  <iframe width="560" height="315" src="https://aga.frba.utn.edu.ar/wp-content/uploads/2016/08/081316_0002_PruebaMathT6.png" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope" allowfullscreen></iframe>
+ <img src="https://aga.frba.utn.edu.ar/wp-content/uploads/2016/08/081316_0002_PruebaMathT6.png">
   </center>
-</p>
+
   <p>
-  <p style="text-align: justify">Un vector en R es la manera más sencilla de establecer. Es una colección de uno o más datos del mismo tipo y nos sirven para construir matrices, listas, data frame, etc. Lo que posibilita que se pueda hacer análisis de datos al más alto nivel.
-  <p style="text-align: justify">Existen varias clases de vectores de acuerdo a su contenido, por ejemplo, los vectores con números reales se llaman Numeric, los vectores con números enteros Integer, los vectores con caracteres lógicos se llaman Logic, los vectores con texto reciben el nombre de Character y los que contienen números complejos se llaman Complex. 
-  <p style="text-align: justify">Con los vectores podemos realizar operaciones aritméticas que se aplican a cada uno de sus elementos. A este proceso le llamamos vectorización.
+  <p style="text-align: justify">Un [vector](https://bookdown.org/jboscomendoza/r-principiantes4/vectores.html) en R es la manera más sencilla de establecer. Es una colección de uno o más datos del mismo tipo y nos sirven para construir matrices, listas, data frame, etc. Lo que posibilita que se pueda hacer análisis de datos al más alto nivel.
+  <p style="text-align: justify">Existen varias clases de vectores de acuerdo a su contenido, por ejemplo, los vectores con números reales se llaman Numeric, los vectores con números enteros Integer, los vectores con caracteres lógicos se llaman Logic, los vectores con texto reciben el nombre de Character y los que contienen números complejos se llaman Complex.
+  <p style="text-align: justify">Con los vectores podemos realizar operaciones aritméticas que se aplican a cada uno de sus elementos. A este proceso le llamamos vectorización.[Ver más...](https://bookdown.org/jboscomendoza/r-principiantes4/vectores.html)</p>
+ 
+   
 
 
   **¿Cómo hacer un vector?**
-  
+ 
   ```{r vector1, exercise=TRUE}
 # Ejemplo 1 - Vector numérico
 vector1 <- c(1,2,3,4,5)
@@ -46,21 +44,21 @@ vector2
 ```
 
 ```{r vector3, exercise=TRUE}
-# Ejemplo 3 - Vector de cadena de texto 
+# Ejemplo 3 - Vector de cadena de texto
 animales <- c("gato","perro","oso", "conejo")
 animales
 ```
 
 ```{r vector4, exercise=TRUE}
-# Ejemplo 4 - Vector logico 
+# Ejemplo 4 - Vector lógico
 Verdadero <- c(TRUE, TRUE, FALSE, FALSE, TRUE)
 Verdadero
 ```
 
 **Operaciones con vectores**
-  
+ 
   <p style="text-align: justify">Las operaciones aritméticas y relacionales pueden vectorizarse. Si las aplicamos a un vector, la operación se realizará para cada uno de los elementos que contiene.</p>
-  
+ 
   ```{r vector-suma, exercise=TRUE}
 #Suma
 vector_a <- c(120, 300, 921, 88)
@@ -71,135 +69,157 @@ a_mas_b
 
 ```{r vector-resta, exercise=TRUE}
 #Resta
-vector_a <- c(120, 300, 921, 88)
-vector_b <- c(30,100,79,2)
-a_menos_b <- vector_a-vector_b
-a_menos_b
+vector_c <- c(120, 300, 921, 88)
+vector_d <- c(30,100,79,2)
+c_menos_d <- vector_c-vector_d
+c_menos_d
 ```
 
 ```{r vector-multiplicacion, exercise=TRUE}
 #Multiplicacion
-vector_a <- c(120, 300, 921, 88)
-vector_b <- c(30,100,79,2)
-a_por_b <- vector_a*vector_b
-a_por_b
+vector_e <- c(120, 300, 921, 88)
+vector_f <- c(30,100,79,2)
+e_por_f <- vector_e*vector_f
+e_por_f
 ```
 
-```{r vector-divsion, exercise=TRUE}
+```{r vector-division, exercise=TRUE}
 #Divsión
-vector_a <- c(120, 300, 921, 88)
-vector_b <- c(30,100,79,2)
-a_entre_b <- vector_a/vector_b
-a_entre_b
+vector_g <- c(120, 300, 921, 88)
+vector_h <- c(30,100,79,2)
+g_entre_h <- vector_g/vector_h
+g_entre_h
 ```
 
 
 ## 2. Ejercicios
 
 **Ejercicio 1**
-  
-  <p style="text-align: justify">*Descripción del ejercicio 1*</p>
-  
+ 
+  <p style="text-align: justify">Crea dos vectores de cadenas de texto con las palabras llamados frutas(manzana,pera,sandía,melón), verduras(zanahoria,papa,tomate,espinaca)  y únelos en otro vector llamado comida.</p>
+ 
   ```{r ejercicio1, exercise=TRUE}
-# Sumar 15+25
+# Crea los dos vectores de las siguiente manera: nombre <- c("texto","texto","texto","texto")
+frutas <-
+verduras <-
 
+#Une vectores de la siguiente forma: nombre <- c(vector1,vector2,vectorn)
+comida <-
 ```
 
 ```{r ejercicio1-solution}
-# Crea un objeto suma que sea 15+25
-suma <- 15+25
-suma
+# Crea los dos vectores de las siguiente manera: nombre <- c("texto","texto","texto","texto")
+frutas <- c("manzana","pera","sandía","melón")
+frutas
+verduras <- c("zanahoria","papa","tomate","espinaca")
+verduras
+
+#Une vectores de la siguiente forma: nombre <- c(vector1,vector2,vectorn)
+comida <- c(frutas,verduras)
+comida
 ```
 
 **Ejercicio 2**
-  
-  <p style="text-align: justify">Descripción del ejercicio 2</p>
-  
-```{r ejercicio2, exercise=TRUE}
-# Crea un vector con las palabras economía, UNAM, boceto, tutorial y que se llame "mis_palabras"
-#mis_palabras <- 
-```
+ 
+  <p style="text-align: justify">Crea dos vectores numéricos, primero con los números impares del 1 al 10 y el segundo los pares del 1 al 10, sumalos y al resultado réstale 2. </p>
+ 
+  ```{r ejercicio2, exercise=TRUE}
+# Crea dos vectores numéricos, nombre <- c(#,#,#,#,#)
+impares <-
+pares <-
+
+#Sumalos agregando el símbolo "+" entre ambos
+sumavector <-
+
+#Resta el agregando "-" después del nombre del resultado.
+restavector <-
+  ```
 
 ```{r ejercicio2-solution}
-# Descripción de la respuesta
-mis_palabras <-  c("economía","UNAM","boceto","tutorial")
-mis_palabras
+# Crea dos vectores numéricos, nombre <- c(#,#,#,#,#)
+impares <- c(1,3,5,7,9)
+pares <- c(2,4,6,8,10)
+
+#Sumalos agregando el símbolo "+" entre ambos
+sumavector <- impares+pares
+sumavector
+
+#Resta agregando "-" después del nombre del resultado.
+restavector <- sumavector-2
+restavector
 ```
 
+**Ejercicio 3**
+ 
+  <p style="text-align: justify">Multiplicar dos vectores secuencia el primero del 10 al 20 y el segundo del 1 al 10 y dividelo entre el siguiente vector 11,24,39,56,75,96,119,144,171,200.</p>
+ 
+  ```{r ejercicio3, exercise=TRUE}
+# Crea los dos primeros vectores secuencia: nombre <- #:# y el vector númerico: nombre <- c(#,#,#,#,#)
+primvector <-
+seguvector <-
+numvector <-
+
+#Multiplica agregando el símbolo "*" entre ambos
+multivector <-
+
+#Divide agregando "/" después del nombre del resultado y antes del nombre del vector númerico.
+divivector <-
+  ```
+
+```{r ejercicio3-solution}
+# Crea los dos primeros vectores secuencia: nombre <- #:# y el vector númerico: nombre <- c(#,#,#,#,#)
+primvector <- 10:20
+seguvector <- 1:10
+numvector <- c(11,24,39,56,75,96,119,144,171,200)
+
+#Multiplica agregando el símbolo "*" entre ambos
+multivector <- primvector*seguvector
+multivector
+
+#Divide agregando "/" después del nombre del resultado y antes del nombre del vector númerico.
+divivector <- multivector/numvector
+divivector
+```
 
 ## 3. Preguntas de repaso
 
 **¿Qué he aprendido?**
-  
+ 
   <p style="text-align: justify">Hasta ahora hemos aprendido qué son los vectores y algunas operaciones que se pueden realizar. Ahora responde el cuestionario que se presenta a continuación...</p>
-  
+ 
 ```{r pregunta1, echo=FALSE}
-learnr::question("¿Qué es un vector?", 
-                 learnr::answer("Es una colección de uno o más datos del mismo tipo", correct = TRUE), 
-                 learnr::answer("Es una colección de uno o más datos de varios tipos"), 
-                 learnr::answer("Son muchas colecciones de uno o más datos de diferentes tipos"), 
-                 random_answer_order = TRUE)
+question("¿Qué es un vector?", answer("Es una colección de uno o más datos del mismo tipo", correct = TRUE), answer("Es una colección de uno o más datos de varios tipos"), answer("Son muchas colecciones de uno o más datos de diferentes tipos"), random_answer_order = TRUE)
 ```
 
 ```{r pregunta2, echo=FALSE}
-learnr::question(
-  "¿Cómo se define un vector en R?",
-  learnr::answer("vector = 1, 2, 3, 4 "),
-  learnr::answer("vector <- 1, 2, 3, 4"),
-  learnr::answer("vector <- c(1, 2, 3, 4)", correct = TRUE, message = "Correcto, así se define un vector en R :D"),
-  learnr::answer("vector_c<- (1, 2, 3, 4)"),
-  random_answer_order = TRUE
-)
+question("¿Cómo se define un vector en R?", answer("vector = 1, 2, 3, 4 "), answer("vector <- 1, 2, 3, 4"), answer("vector <- c(1, 2, 3, 4)", correct = TRUE, message = "Correcto, así se define un vector en R :D"), answer("vector_c<- (1, 2, 3, 4)"), random_answer_order = TRUE)
 ```
 
 ```{r pregunta3, echo=FALSE}
-learnr::question(
-  "¿Cuál el es código correcto para realizar una suma de vectores?",
-  learnr::answer(
-    "vector_a <- c(80, 60, 40, 20)\n\nvector_b <- c(10,20,30,40)\n\nsuma_vectores <- vector_a+vector_b\n\nsuma_vectores",
-    correct = TRUE,
-    message = "Este es el código correcto :D"
-  ),
-  learnr::answer(
-    "vector_a <- (100, 300, 200, 150)\n\nvector_b <- (20, 30, 40, 50)\n\nsuma_vectores <- vector_a+vector_b\n\nsuma_vectores"
-  ),
-  learnr::answer(
-    "vector_a <- c '100, 300, 200, 150'\n\nvector_b <- c '20, 30, 40, 50'\n\nsuma_vectores <- vector_a+vector_b\n\nsuma_vectores"
-  ),
-  learnr::answer(
-    "vector_a = 100, 300, 200, 150)\n\nvector_b = (20, 30, 40, 50)\n\nsuma_vectores = vector_a+vector_b\n\nsuma_vectores"
-  ),
-  random_answer_order = TRUE
-)
+question("¿Cuál el es código correcto para realizar una suma de vectores?", answer("vector_a <- c(80, 60, 40, 20)\n\nvector_b <- c(10,20,30,40)\n\nsuma_vectores <- vector_a+vector_b\n\nsuma_vectores", correct = TRUE, message = "Este es el código correcto :D"), answer("vector_a <- (100, 300, 200, 150)\n\nvector_b <- (20, 30, 40, 50)\n\nsuma_vectores <- vector_a+vector_b\n\nsuma_vectores"), answer("vector_a <- c '100, 300, 200, 150'\n\nvector_b <- c '20, 30, 40, 50'\n\nsuma_vectores <- vector_a+vector_b\n\nsuma_vectores"), answer("vector_a = 100, 300, 200, 150)\n\nvector_b = (20, 30, 40, 50)\n\nsuma_vectores = vector_a+vector_b\n\nsuma_vectores"), random_answer_order = TRUE)
 ```
 
 ```{r pregunta4, echo=FALSE}
-learnr::question(
-  "Tipo de operaciones que aprendimos a realizar de manera relacional con vectores en R",
-  learnr::answer("Aritméticas", correct = TRUE),
-  learnr::answer("Algebráicas"),
-  learnr::answer("Lógicas"),
-  random_answer_order = TRUE
-)
+question("Tipo de operaciones que aprendimos a realizar de manera relacional con vectores en R", answer("Aritméticas", correct = TRUE), answer("Algebráicas"), answer("Lógicas"), random_answer_order = TRUE)
 ```
 
 
 ## 4. Reflexiones finales
 
 **La utilidad de los vectores**
-  
-  <p style="text-align: justify">Aquí tenemos algunas reflexiones finales</p>
-  
+ 
+  <p style="text-align: justify">El poder crear vectores es uno de los primeros pasos en la progrmación dirigida a objetos, preparando el camino para complejizar y enriquecer tus futuros proyectos.</p>
+ 
   **¿Qué aprendimos en esta lección?**
-  
+ 
   <p style="text-align: justify">Selecciona las respuestas correctas de acuerdo a lo aprendido en el tutorial</p>
-  
+ 
 ```{r checkbox, echo=FALSE}
-learnr::question_checkbox("¿Cómo se le llama al proceso de aplicar operaciones a cada uno de los elementos de un vector?",
- learnr::answer("Vectorización", correct = TRUE, message = "Muchas felicidades, si entendiste el tema 😁"),
-  learnr::answer("Sumas'", message = "Debes repasar el tema"),
-  learnr::answer("Vectores relacionales", message = "Debes repasar el tema"),
-  learnr::answer("Aritmética", message = "Debes repasar el tema"),
+question_checkbox("¿Cómo se le llama al proceso de aplicar operaciones a cada uno de los elementos de un vector?",
+  answer("Vectorización", correct = TRUE, message = "Muchas felicidades, si entendiste el tema 😁"),
+  answer("Sumas'", message = "Debes repasar el tema"),
+  answer("Vectores relacionales", message = "Debes repasar el tema"),
+  answer("Aritmética", message = "Debes repasar el tema"),
   random_answer_order = TRUE,
   allow_retry = TRUE,
   try_again = "Try again"
@@ -207,4 +227,3 @@ learnr::question_checkbox("¿Cómo se le llama al proceso de aplicar operaciones
 ```
 
 <p style="text-align: justify">¡Felicidades, ahora sabes un poco más sobre los vectores!</p>
-  
