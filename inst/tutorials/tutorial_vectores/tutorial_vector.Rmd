@@ -22,10 +22,9 @@ library(learnr)
   </center>
 
   <p>
-  <p style="text-align: justify">Un [vector](https://bookdown.org/jboscomendoza/r-principiantes4/vectores.html) en R es la manera más sencilla de establecer. Es una colección de uno o más datos del mismo tipo y nos sirven para construir matrices, listas, data frame, etc. Lo que posibilita que se pueda hacer análisis de datos al más alto nivel.
-  <p style="text-align: justify">Existen varias clases de vectores de acuerdo a su contenido, por ejemplo, los vectores con números reales se llaman Numeric, los vectores con números enteros Integer, los vectores con caracteres lógicos se llaman Logic, los vectores con texto reciben el nombre de Character y los que contienen números complejos se llaman Complex.
-  <p style="text-align: justify">Con los vectores podemos realizar operaciones aritméticas que se aplican a cada uno de sus elementos. A este proceso le llamamos vectorización.[Ver más...](https://bookdown.org/jboscomendoza/r-principiantes4/vectores.html)</p>
- 
+  <p style="text-align: justify">Un [vector](https://bookdown.org/jboscomendoza/r-principiantes4/vectores.html) en R es la manera más sencilla de crear un conjunto de uno o más datos del mismo tipo, este es el primer paso hacia la programación orientada a objetos, debido a que los vectores son el ensamble fundamental en la creación de conjunto de datos más complejos, como las listas, matrices y data frames.
+  <p style="text-align: justify">Existen diversas clases de vectores, se clasifican de acuerdo a los elementos que contiene, los vectores con números reales se llaman Numeric, los vectores con caracteres lógicos se llaman Logic, los vectores con texto reciben el nombre de Character, entre otros, cada uno con características particulares que los vuelve una herramienta fundamental en el manejo del software R. [Ver más...](https://bookdown.org/jboscomendoza/r-principiantes4/vectores.html)</p>
+
    
 
 
@@ -121,7 +120,7 @@ comida
 
 **Ejercicio 2**
  
-  <p style="text-align: justify">Crea dos vectores numéricos, primero con los números impares del 1 al 10 y el segundo los pares del 1 al 10, sumalos y al resultado réstale 2. </p>
+  <p style="text-align: justify">Crea dos vectores numéricos, el primero con los números impares del 1 al 10 y el segundo con los pares del 1 al 10, sumalos y al resultado réstale 2. </p>
  
   ```{r ejercicio2, exercise=TRUE}
 # Crea dos vectores numéricos, nombre <- c(#,#,#,#,#)
@@ -151,7 +150,7 @@ restavector
 
 **Ejercicio 3**
  
-  <p style="text-align: justify">Multiplicar dos vectores secuencia el primero del 10 al 20 y el segundo del 1 al 10 y dividelo entre el siguiente vector 11,24,39,56,75,96,119,144,171,200.</p>
+  <p style="text-align: justify">Multiplica dos vectores secuencia, el primero con los numeros del 11 al 20 y el segundo con los numeros de 1 a 10 y el resultado obtenido dividelo entre el siguiente vector 11,24,39,56,75,96,119,144,171,200.</p>
  
   ```{r ejercicio3, exercise=TRUE}
 # Crea los dos primeros vectores secuencia: nombre <- #:# y el vector númerico: nombre <- c(#,#,#,#,#)
