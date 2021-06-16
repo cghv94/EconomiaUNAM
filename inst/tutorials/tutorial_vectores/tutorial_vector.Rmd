@@ -22,12 +22,13 @@ library(learnr)
   </center>
 
   <p>
-  <p style="text-align: justify">Un [vector](https://bookdown.org/jboscomendoza/r-principiantes4/vectores.html) en R es la manera más sencilla de crear un conjunto de uno o más datos del mismo tipo, este es el primer paso hacia la programación orientada a objetos, debido a que los vectores son el ensamble fundamental en la creación de conjunto de datos más complejos, como las listas, matrices y data frames.
-  <p style="text-align: justify">Existen diversas clases de vectores, se clasifican de acuerdo a los elementos que contiene, los vectores con números reales se llaman Numeric, los vectores con caracteres lógicos se llaman Logic, los vectores con texto reciben el nombre de Character, entre otros, cada uno con características particulares que los vuelve una herramienta fundamental en el manejo del software R. [Ver más...](https://bookdown.org/jboscomendoza/r-principiantes4/vectores.html)</p>
+  <p style="text-align: justify">Un [vector](https://bookdown.org/jboscomendoza/r-principiantes4/vectores.html) es la manera más sencilla de crear un conjunto de uno o más datos del mismo tipo. Este es el primer paso hacia la programación orientada a objetos, debido a que los vectores son el ensamble fundamental en la creación de conjunto de datos más complejos, como las listas, matrices y data frames.
+  <p style="text-align: justify">Existen diversas clases de vectores, pues se clasifican de acuerdo a los elementos que contienen y cada uno tiene características particulares que los vuelve una herramienta fundamental en el manejo del software R.:  
+  <p style="text-align: justify">**Numeric:** Vectores con números reales. 
+  <p style="text-align: justify">**Logic:** Vectores con carácteres lógicos. 
+  <p style="text-align: justify">**Character:** Vectores con texto.    <p style="text-align: justify">[Ver más...](https://bookdown.org/jboscomendoza/r-principiantes4/vectores.html)</p>
 
    
-
-
   **¿Cómo hacer un vector?**
  
   ```{r vector1, exercise=TRUE}
