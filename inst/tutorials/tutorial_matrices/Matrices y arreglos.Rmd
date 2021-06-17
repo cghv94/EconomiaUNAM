@@ -1,0 +1,290 @@
+---
+title: "Matrices y arreglos"
+subtitle: "[Facultad de Economía, UNAM](http://economia.unam.mx)\n"
+author: "[César Gerardo Hernández Vargas](https://cghv94.github.io/)\n, [América Vianney Velásquez Abrego](https://github.com/Vianney98)\n" 
+date: "09/06/2021\n\n"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+  
+  ```{r setup, include=FALSE}
+library(learnr)
+```
+
+## 1. ¿Qué es una Matriz?
+
+  
+  <center>
+  <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/032b9a844122de9956be93124351cc360acd84a3">
+  </center>
+  
+  <p>
+  <p style="text-align: justify">Una [matriz](http://recursostic.educacion.es/descartes/web/materiales_didacticos/Calculo_matricial_d3/defmat.htm) es un arreglo en el que se representa un conjunto ordenado de datos en filas y columnas. Los elementos que tiene esta matriz. Normalmente, las matrices se utilizan en álgebra lineal para representar sistemas de ecuaciones lineales o diferenciales. 
+<p style="text-align: justify">Las filas de las matrices son las líneas horizontales de la matriz, mientras que las columnas son las líneas verticales. A una matriz con 'm' filas y 'n' columnas se le denomina matriz *mxn*, a esto se le conoce como *orden*, que es el que define el tamaño de la matriz. 
+<p style="text-align: justify">Existen varios tipos de matrices que se dividen de acuerdo al orden y elementos que contiene.
+<p style="text-align: justify">**La clasificación de matrices de acuerdo a su *orden* son:**
+  <p style="text-align: justify"> **Matriz rectangular:** Matriz en la que m es diferente de n, un ejemplo es una matriz con 3 filas y 2 columnas, 3x2
+  <p style="text-align: justify"> **Matriz cuadrada:** Matriz en la que el orden indica que el número de filas y de columnas es el mismo, por ejemplo una matriz de 3 columnas y 3 filas, 3x3.
+  <p style="text-align: justify"> **Matriz fila:** Es una matriz con una sola fila y cero columnas, también se le conoce como vector.
+<p style="text-align: justify"> **Matriz columna:** Es una matriz con cero filas y una columna, también se puede ver como un vector.\n\n 
+<p style="text-align: justify">**Clasificación de matrices de acuerdo a sus elementos:**
+<p style="text-align: justify"> **Matriz nula:** Es una matriz en la que todos sus elementos son cero, no importa su orden.
+<p style="text-align: justify"> **Matriz escalonada:** Es una matriz en la que, al inicio de al menos una fila o columna hay un elemento nulo o cero.
+<p style="text-align: justify"> **Matriz triangular superior/inferior:** Matriz cuadrada en la que todos los elementos por encima o por debajo de la diagonal son iguales a cero.
+<p style="text-align: justify"> **Matriz diagonal:** Matriz cuadrada en la que todos elementos afuera de su diagonal principal son cero.
+<p style="text-align: justify"> **Matriz escalar:** Matriz cuadrada en la que los elementos de la diagonal principal son iguales.
+<p style="text-align: justify"> **Matriz identidad:** Matriz escalar en la que los elementos de la diagonal son iguales a 1.[Ver más...](https://www.superprof.es/apuntes/escolar/matematicas/algebralineal/matrices/matrices-12.html)</p>\n\n
+  
+  
+  **Arreglos de matrices**
+  
+  <center>
+  <img src="https://codigosdeprogramacion.com/cursos/wp-content/uploads/2017/03/Imagen1.jpg">
+  </center>
+  
+  <p>
+  <p style="text-align: justify">El arreglo de matrices no es más que un espacio que permite almacernar una estructura de datos del mismo tipo. Podemos imaginar al arreglo como varias casillas en donde cada casilla tendrá un elemento de la estructura guardado. Cada elemento de la matriz o arreglo tendrá un número al que se asocia, este es conocido como índice numérico. [Ver más...](https://es.slideshare.net/KatheryCorreaQuiroz/arreglos-y-matrices-74731081)</p>\n
+  
+  **Aprendiendo a hacer matrices y arreglos**
+  
+  ```{r matriz1, exercise=TRUE}
+# Ejemplo 1 - Crear una matriz cuadrada de 2x2
+a<-c(1,2)
+b<-c(3,4)
+c<-matrix(c(a,b),nrow=2)
+c
+```
+
+```{r matriz2, exercise=TRUE}
+# Ejemplo 2 - Crear una matriz cuadrada de 3x3
+d <-c(1,4,7)
+e <-c(2,5,8)
+f <-c(3,6,9)
+g <-matrix(c(d,e,f),nrow=3)
+g
+```
+
+```{r matriz3, exercise=TRUE}
+# Ejemplo 3 - Crear matriz de datos 3x2
+h<-c(1,2,3)
+i<-c(4,5,6)
+j<-matrix(c(h,i),nrow=3)
+colnames(j)=c("Columna H","Columna I")
+rownames(j)=c("Fila uno","Fila dos","Fila tres")
+j
+```
+
+```{r matriz4, exercise=TRUE}
+# Ejemplo 4 - Crear matriz por columnas
+k<-c(10,20,30)
+l<-c(40,50,60)
+m<-cbind(k,l)
+colnames(m)<-c("Columna K","Columna L")
+rownames(m)<-c("Fila I","Fila II","Fila III")
+m
+```
+
+```{r matriz5, exercise=TRUE}
+# Ejemplo 5 - Crear matriz por renglones
+n<-c("gato","mesa","rojo")
+o<-c("perro","silla","verde")
+p<-rbind(n,o)
+colnames(p)<-c("Animal","Cosa","Color")
+rownames(p)<-c("Fila N","Fila O")
+p
+```
+
+```{r matriz6, exercise=TRUE}
+# Ejemplo 6 - Crear matriz por columnas de manera rápida
+matriz<-cbind(numero=c(1,3,5),animal=c("perro","gato","oso"),cosa=c("mesa","silla","puera"))
+matriz
+```
+
+```{r matriz7, exercise=TRUE}
+# Ejemplo 7 - Crear un arreglo de datos (matriz con varias capas)
+matriz1<-cbind(c(1,3,5),c("perro","gato","oso"),c("mesa","silla","puera"))
+matriz2<-cbind(c(2,4,6),c("lobo","conejo","pato"),c("libro","pluma","goma"))
+mi_primer_arreglo<-array(c(matriz1,matriz2),dim = c(3,3,2))
+mi_primer_arreglo
+```
+
+
+```{r matriz8, exercise=TRUE}
+# Ejemplo 8 - Cambiar el nombre de las columnas en nuestro arreglo 
+colnames(mi_primer_arreglo)<-c("Número","Animal","Cosa")
+rownames(mi_primer_arreglo)<-c("Primera fila","Segunda fila","Tercer fila")
+mi_primer_arreglo
+```
+
+
+## 2. Ejercicios de matrices y arreglos
+
+**Ejercicio 1. Un arreglo de edad, peso y altura**
+  
+  <p style="text-align: justify">En 2019, Ana tenía 15 años, pesaba 48 kilos y medía 1.50; para 2020, Ana tenía 16 años, pesaba 50 kilos y medía 1.55. En 2019, Juan tenía 13 años, pesaba 40 kilos y medía 1.45; para 2020, Juan tenía 14 años, pesaba 51 kilos y medía 1.50. En 2019, Pedro tenía 17 años, pesaba 60 kilos y medía 1.60; para 2020, Pedro tenía 18 años, pesaba 65 kilos y medía 1.65.</p>
+**Arreglo por columnas**
+  ```{r ejercicio1, exercise=TRUE}
+# Realiza el arreglo por columnas de la siguiente forma: datos2019<-cbind(c(edades c/u),c(peso c/u),c(estatura c/u)), datos2020<-cbind(c(edades),c(pesos),c(estaturas))
+datos2019<-
+datos2020<-
+#Une los arregos usando 'array' y las dimensiones que tendrá la matriz con dim = c(#,#,#))
+arreglo_columnas<-
+#Nombra las columnas con 'colnames' 
+colnames(arreglo_columnas)<-
+#Nombra las fias con 'rownames'
+rownames(arreglo_columnas)<-
+#Llama al arreglo que hiciste
+
+  ```
+  <p style="text-align: justify">En 2019, Ana tenía 15 años, pesaba 48 kilos y medía 1.50; para 2020, Ana tenía 16 años, pesaba 50 kilos y medía 1.55. En 2019, Juan tenía 13 años, pesaba 40 kilos y medía 1.45; para 2020, Juan tenía 14 años, pesaba 51 kilos y medía 1.50. En 2019, Pedro tenía 17 años, pesaba 60 kilos y medía 1.60; para 2020, Pedro tenía 18 años, pesaba 65 kilos y medía 1.65.</p>
+```{r ejercicio1-solution}
+# Realiza el arreglo por columnas de la siguiente forma: datos2019<-cbind(c(edades c/u),c(peso c/u),c(estatura c/u)), datos2020<-cbind(c(edades),c(pesos),c(estaturas))
+datos2019<-cbind(c(15,13,17),c(48,40,60),c(1.50,1.45,1.60))
+datos2020<-cbind(c(16,14,18),c(50,51,65),c(1.55,1.50,1.65))
+#Une los arreglos usando 'array' y las dimensiones que tendrá la matriz con dim = c(#,#,#))
+arreglo_columnas<-array(c(datos2019,datos2020),dim = c(3,3,2))
+#Nombra las columnas con 'colnames'
+colnames(arreglo_columnas)<-c("Edad","Peso","Estatura")
+#Nombra las filas con 'rownames'
+rownames(arreglo_columnas)<-c("Ana","Juan","Pedro")
+#Llama al arreglo que hiciste
+arreglo_columnas
+```
+
+**Arreglo por filas**  
+
+  <p style="text-align: justify">En 2015, Víctor tenía 13 años, pesaba 52 kilos y medía 1.60; para 2016, tenía 14 años, pesaba 56 kilos y medía 1.67. En 2015, María tenía 16 años, pesaba 48 kilos y medía 1.55; para 2016, María tenía 17 años, pesaba 51 kilos y medía 1.56. En 2015, Joana tenía 15 años, pesaba 63 kilos y medía 1.54; para 2016, Joana tenía 16 años, pesaba 59 kilos y medía 1.56.</p>
+  
+  ```{r ejercicio2, exercise=TRUE}
+#Realiza el arreglo por filas de la siguiente forma, info2015<-rbind(c(edad, peso, estatura),c(edad, peso, estatura),c(edad, peso, estatura))
+info2016<-rbind(c(edad, peso, estatura),c(edad, peso, estatura),c(edad, peso, estatura))
+info2015<-
+info2016<-
+#Forma el arreglo usando 'array', dim=c(#,#,#)
+arreglo_filas<-
+#Nombra las columnas con 'colnames'
+colnames(arreglo_filas)<-
+#Nombra las filas con 'rownames'
+rownames(arreglo_filas)<-
+#Llama al arreglo que hiciste
+
+  ```
+
+```{r ejercicio2-solution}
+# Realiza el arreglo por columnas de la siguiente forma: datos2015<-cbind(c(edades c/u),c(peso c/u),c(estatura c/u)), datos2016<-cbind(c(edades),c(pesos),c(estaturas))
+datos2015<-cbind(c(13,16,15),c(52,48,63),c(1.60,1.55,1.54))
+datos2016<-cbind(c(14,17,16),c(56,51,59),c(1.67,1.56,1.56))
+#Une los arreglos usando 'array' y las dimensiones que tendrá la matriz con dim = c(#,#,#))
+arreglo_columnas<-array(c(datos2019,datos2020),dim = c(3,3,2))
+#Nombra las columnas con 'colnames'
+colnames(arreglo_columnas)<-c("Edad","Peso","Estatura")
+#Nombra las filas con 'rownames'
+rownames(arreglo_columnas)<-c("Ana","Juan","Pedro")
+#Llama al arreglo que hiciste
+arreglo_columnas
+```
+
+## 3. Operaciones con matrices 
+
+**A poner en práctica lo que aprendimos**
+  
+  <p style="text-align: justify">Con las matrices también podemos realizar operaciones algebráicas, pero vamos a ver cómo se realizan en R. </p>
+  
+  <p style="text-align: justify">**Suma:** Para unir dos matrices por medio de una suma, primero debemos verificar que las matrices tengan la misma *dimensión*, de lo contrario, la suma no puede llevarse a cabo. Para ejecutar la suma, cada elemento de la matriz se va a sumar al elemento que esté en la misma posición en la otra matriz.</p>
+  
+  <p style="text-align: justify">**Resta:** En el caso de la resta, se debe verificar la misma característica de la suma. Para realizar la resta se debe restar los valores que se encuentren en la misma posición de cada matriz. </p>
+  
+  <p style="text-align: justify">**Multiplicación:** La multiplicación tiene un proceso más complejo. Para que se lleve a cabo, la primer matriz debe tener el mismo número de columnas que el número de filas de la segunda matriz. Para hacer el procedimiento, comenzamos tomando la primer fila de la matriz A y la multiplicamos por la primer columna de la matriz B y, después, se suman los elementos.</p>
+  
+  <p style="text-align: justify">**División:** La división de matrices puede explicarse como la multiplicación de la matriz numerados y la matriz denominador.</p>
+  <p style="text-align: justify">Por otra parte, si lo que se desea hacer es la división de una matriz entre un escalar, simplemente se divide cada elemento entre el escalar y se obtiene el resultado.</p>
+<p style="text-align: justify">**Ahora vamos a realizar cada operación con el código** </p>
+
+```{r matriz_1, exercise=TRUE}
+# Creamos una matriz nueva
+Matrizej <- matrix(1:12, nrow = 3)
+Matrizej 
+
+```
+
+```{r matriz_2, exercise=TRUE}
+# Suma de matrices
+Matrizej + 10
+
+```
+
+```{r matriz_3, exercise=TRUE}
+# Resta
+Matrizej - 10
+
+```
+
+```{r matriz_4, exercise=TRUE}
+# Multiplicación
+Matrizej * 4
+
+```
+
+```{r matriz_5, exercise=TRUE}
+# Matriz inversa
+Matrizej^-1
+
+```
+
+```{r matriz_6, exercise=TRUE}
+# Matriz transpuesta
+t(Matrizej)
+
+```
+
+```{r matriz_7, exercise=TRUE}
+# Matriz diagonal
+Matid <- diag(5)
+Matid
+
+```
+
+
+## 4. Ejercicios
+```{r pregunta1, echo=FALSE}
+question("¿Pregunta 1 aquí?", answer("Respuesta correcta", correct = TRUE, message = "Mensaje de felicitación"), answer("Respuesta incorrecta"), answer("Respuesta incorrecta"), random_answer_order = TRUE)
+```
+
+```{r pregunta2, echo=FALSE}
+question("¿Pregunta 2 aquí?", answer("Respuesta incorrecta "), answer("Respuesta incorrecta"), answer("Respuesta correcta", correct = TRUE, message = "Mensaje de felicitación"), answer("Respuesta incorrecta"), random_answer_order = TRUE)
+```
+
+```{r pregunta3, echo=FALSE}
+question("Pregunta 3 aquí", answer("Respuesta correcta", correct = TRUE, message = "Mensaje de felicitación"), answer("Respuesta incorrecta"), answer("Respuesta incorrecta"), answer("Respuesta incorrecta"), random_answer_order = TRUE)
+```
+
+```{r pregunta4, echo=FALSE}
+question("Pregunta 5 aquí", answer("Respuesta correcta", correct = TRUE, message = "Mensaje de felicitación"), answer("Respuesta incorrecta"), answer("Respuesta incorrecta"), random_answer_order = TRUE)
+```
+
+
+## 5. Reflexiones finales
+
+**La utilidad de las matrices**
+  
+  <p style="text-align: justify">Reflexiones finales sobre las matrices, lo que se aprendió en este tutorial, los ejercicios y los repasos :D</p>
+  
+  **¿Qué aprendimos en esta lección?**
+  
+  <p style="text-align: justify">Selecciona las respuestas correctas de acuerdo a lo aprendido en el tutorial</p>
+  
+```{r checkbox, echo=FALSE}
+question_checkbox("Pregunta 1 sobre lo aprendido en el curso",
+                  answer("Respuesta correcta", correct = TRUE, message = "Muchas felicidades, si entendiste el tema 😁"),
+                  answer("Resouesta incorrecta", message = "Debes repasar el tema"),
+                  answer("Respuesta incorrecta", message = "Debes repasar el tema"),
+                  answer("Respuesta incorrecta", message = "Debes repasar el tema"),
+                  random_answer_order = TRUE,
+                  allow_retry = TRUE,
+                  try_again = "Try again"
+)
+```
+
+<p style="text-align: justify">¡Felicidades, ahora sabes un poco más sobre las matrices y arreglos! :D</p>
+
+<p style="text-align: justify">**Referencias:<br>- Rodo, P. (2019). *Operaciones con matrices*. https://economipedia.com/definiciones/operaciones-con-matrices.html <br>- Sacau Fontanela, P. (2004). *Definición de matriz*.http://recursostic.educacion.es/descartes/web/materiales_didacticos/Calculo_matricial_d3/defmat.htm <br>- Correa Quiroz, K. (2017). *Arreglos y matrices*. Slideshare. https://es.slideshare.net/KatheryCorreaQuiroz/arreglos-y-matrices-74731081 <br>- Marta. (2020). *Todo sobre matrices*. Superprof. https://www.superprof.es/apuntes/escolar/matematicas/algebralineal/matrices/matrices-12.html **</p>
