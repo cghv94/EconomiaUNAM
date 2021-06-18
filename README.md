@@ -20,13 +20,14 @@ El objetivo del paquete EconomiaUNAM es:
 
 ## Tutoriales Planeados y status
 
--   [x] 1. Vectores ✅
--   [x] 2. Matrices y arreglos ✅
--   [x] 3. Introducción a dplyr ✅
--   [ ] 4. Medidas de dispersión ✅
--   [ ] 5. Medidas de forma ✅
--   [ ] 6. Regla empírica ❌
+-   ✅ 1. Vectores
+-   ✅ 2. Matrices y arreglos
+-   ✅ 3. Introducción a dplyr
+-   [ ] 4. Medidas de dispersión \[PENDING\]
+-   [ ] 5. Medidas de forma \[PENDING\]
+-   [ ] 6. Regla empírica \[PENDING\]
 -   [ ] 7. Introducción a Regresiones Lineales y pruebas de hipótesis
+    \[EN CONSTRUCCIÓN\]
 
 ## Instalación
 
