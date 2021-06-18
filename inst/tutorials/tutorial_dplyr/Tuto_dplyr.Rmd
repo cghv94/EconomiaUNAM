@@ -1,0 +1,322 @@
+---
+author: "[Jorge Hernández](https://github.com/Jorge-hercas)"
+title: "Introducción a Dplyr"
+subtitle: "[Facultad de Economía, UNAM](http://economia.unam.mx)\n"
+output: learnr::tutorial
+runtime: shiny_prerendered
+description: >
+  Adentrate en la manipulación de datos como todo un experto.
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## Entendiendo los Data Frames
+
+Un economista suele trabajar con información ya existente, la cual suele interpretar para poder dar un análisis-valga la redundancia-económico. Ahora, debemos preguntarnos lo siguiente: ¿de donde obtenemos y cómo trabajamos con la información? Independientemente del origen de una base de datos o una serie de datos que tengamos para trabajar, estos generalmente serán de tipo **Data Frame**, pero ¿qué es esto? Los Data Frames son una estructura de datos que aceptan diferentes tipos de caracteres, ya sean numéricos, nombres, booleanos, etc. La ventaja de los Data Frames radica en poder almacenar casi todo tipo de información,por lo que los podemos utilizar para trabajar con pronósticos, modelos económicos, gráficos, etc. Dentro de *Rstudio* ya tenemos precargados algunos Data Frames para poder practicar, pero en este caso veremos cómo crear uno desde cero. Debemos partir de la creación de vectores individuales (con cantidades similares de datos), por ejemplo:
+
+```{r vectores, exercise=TRUE}
+# Creamos vectores de diferentes clases
+Vec1 <- rep(c(1,4,1,5,2), c(21,40,20,29,17))
+Vec2 <- rep(c("Caso 1", "Caso 2", "Caso 3"), c(50,45,32))
+Vec3 <- rep(c(TRUE, FALSE), c(80, 47))
+Fecha <- lubridate::seq(as.Date("2020-01-01"), as.Date("2020-05-06"), by = "day")
+
+# Creamos el data frame
+datos_ejercico <- data.frame(Vec1, Vec2, Vec3, Fecha)
+
+# Visualizamos 
+head(datos_ejercico)
+```
+
+
+Vamos a desglozar el código para que lo puedas entender de manera más sencilla. Primero, todo aquello que se encuentre antes del signo `<-` es el nombre del objeto que nosotros hemos creado. Este nombre puede ser cualquier cosa que se nos ocurra, ya que solo será una manera de identificar los datos que hemos creado. Ahora, para los datos que hemos creado utilizamos dos funciones principales: `rep()` y `seq()`. La idea de la función `rep()` es replicar valores una cierta cantidad de veces, mientras que la idea de la función `seq()` es generar una secuencia de valores, siendo en este caso una secuencia de fechas. Es importante mencionar que para poder generar una secuencia de fechas como lo hicimos en este ejemplo, es necesario utilizar el paquete `lubridate`. Ahora, la función `data.frame()` nos une los vectores individuales que hemos creado en uno solo del tipo ya mencionado, por lo que ahora podemos trabajar con el.
+
+De igual forma, podemos crear números aleatorios mediante la función `sample()`, a la cual le damos un intervalo, le decimos cuantos números aleatorios queremos y ésta nos da una muestra. Veamos un ejemplo:
+
+```{r vectoresaleat, exercise=TRUE}
+# Creamos un vector de números aleatorios
+aleatorio <- sample(1:10, size = 20, replace = TRUE)
+
+# Visualizamos 
+head(aleatorio)
+```
+
+Puedes modificar el intervalo o el tamaño de la muestra, para que veas como se generan los números aleatorios.
+
+### Ejercicio 
+
+*Veamos si has comprendido correctamente la creación de un Data Frame*
+
+Con las funciones que te mostré anteriormente, crea un data frame que contenga una variable de números aleatorios entre 200 y 500, así como otra variable que tenga los caracteres *Hombre* y *Mujer* repetidos una cierta cantidad de veces. Tu puedes escoger el tamaño de los datos que tendrá el Data Frame, pero considera que ambos vectores deben ser del mismo tamaño.
+
+```{r crear-df, exercise=TRUE}
+
+```
+
+## Extrayendo datos de un Data Frame
+
+Imaginemos la siguiente situación: Supongamos que trabajamos para una consultoría que analiza datos sobre variables macroeconómicas como la inflación, el PIB, desempleo, etc, para poder decirdir cuando o no invertir en la bolsa. Ahora, imaginemos que nos piden obtener los datos del PIB en el primer trimestre de 2020 para compararlos con el del primer trimestre de 2021, ¿cómo haríamos esto? Cuando trabajamos con bases de datos, es bastante común que tengamos que extraer algún dato de algún punto de ella, cosa que en realidad es muy sencilla de hacer. Vamos a utilizar los datos de `gapminder`, los cuales nos dicen la esperanza de vida de los últimos 50 años para diversos países, veamoslo:
+
+```{r gapm-view, exercise=TRUE}
+# Cargamos los datos
+library(gapminder)
+data("gapminder")
+
+#Visualizamos los primeros datos
+head(gapminder)
+```
+
+
+Ahora, vamos a obtener los datos número 10, 50 y 120 del data frame, para que puedas ver como se hace:
+
+```{r gapm-filt, exercise=TRUE}
+# Cargamos los datos
+library(gapminder)
+data("gapminder")
+
+# Obtenemos los datos que queremos
+gapminder[c(10,50,120),]
+```
+
+Lo que hicimos con el comando `gapminder[c(10,50,120),]` fue obtener los observaciones 10, 50 y 120, como lo mencioné anteriormente. Si solo quisieramos la observación 10, por ejemplo, solo tendríamos que escribir `gapminder[10,]`, pero considera que debes escribir una coma al final, ya que eso le indica a *R* que queremos obtener renglones; Si no escribimos la coma, entonces *R* interpretará el comando como siquieramos obtener columnas como tal.
+
+De igual manera, podemos extraer las observaciones de una sola columna, esto de la siguiente manera:
+
+```{r gapm-filt-1, exercise=TRUE}
+# Cargamos los datos
+library(gapminder)
+data("gapminder")
+
+# Obtenemos los datos que queremos
+gapminder[c(10,50,120), 1]
+```
+
+Ahora te toca a ti. intenta obtener la observación número 32 de la variable 3 a contunuación. Te ayudaré cargando los datos:
+
+```{r gapm-filt-ex, exercise=TRUE}
+# Cargamos los datos
+library(gapminder)
+data("gapminder")
+
+```
+
+Hasta ahora esto puede sernos muy útil, pero ciertamente puede ser algo complicado identificar a la variable que queremos solo por el número de renglón en el que se encuentra, más cuando trabajamos con una base de datos con miles de observaciones. Aquí es donde entra `Dplyr` con algunas funciones que pueden sernos sumamemnte útiles. Esto lo veremos en la siguiente sección.
+
+## `Dplyr`: La función `filter()`
+
+Uno de los paquetes más útiles en cuanto al manejo de una base de datos es, sin duda alguna, `Dplyr`, ya que cuenta con prácticamente todas las funciones que podamos imaginar para trabajar con nuestros datos. Si regresamos al tema de obtener valores específicos de un data frame, es posible que lo que nosotros queramos sea, por ejemplo, obtener los datos de un año en particular, ¿cómo haríamos esto? Es muy sencillo en realidad, mediante la función `filter()`, la cual nos ayudará a filtrar nuestros datos dependiendo del atributo que nosotros queramos. Por ejemplo, si quisieramos tener solamente las observaciones de 2007, esto lo podemos hacer de la siguiente manera:
+
+```{r dpl, message=FALSE, warning=FALSE, exercise=TRUE}
+# Cargamos el paquete y los datos
+library(dplyr)
+library(gapminder)
+data("gapminder")
+
+# Filtramos
+head(filter(gapminder, year == 2007))
+```
+
+Como podemos ver, ahora solo tenemos datos del año 2007. Se está usando la función `head()` para visualizar los primeros valores de la base nada más. Si quisieramos filtrar aquellas variables que no son númericas, lo podemos hacer de la misma manera, sin embargo, debemos considerar que para filtrar aquellos valores no numéricos, debemos escribir el valor entre comillas, por ejemplo: `"Albania"`, si solo quisieramos los datos de Albania.
+
+Las operaciones que podemos hacer para filtrar datos de un data frame incluyen las siguientes: `==` para una igualdad, `<` para valores menores a un cierto rango, `<=` para valores menores o iguales a un cierto rango, `>` para valores mayores a un cierto rango, `>=` para valores mayores o iguales a un cierto rango, `%in%` para una serie de igualdades (por ejemplo, cuando queremos obtener datos de 1975, 2000 y 2008) y `between()` para valores dentro de un intervalo de datos. Existen otros operadores, pero los más importantes para comenzar a filtrar nuestros datos a nuestro gusto.
+
+Ahora que conoces los operadores, intenta filtar los datos de `gapminder` de la variable lifeExp mayores a 50, es decir, filtra la base datos para saber cuales son los países (independientemente del año) que han tenido una expectativa de vida mayor o igual a 50. Te ayudaré cargando los datos, el resto está en tus manos:
+
+```{r dpl-ex, message=FALSE, warning=FALSE, exercise=TRUE}
+# Cargamos el paquete y los datos
+library(dplyr)
+library(gapminder)
+data("gapminder")
+
+```
+
+
+Una de las ventajas de la función `filter()` es que al considerar los NA como valores menores a cualquier otro (independientemente de que sean negativos) entonces al aplicar la función, todos éstos valores nulos van a desaparecer.
+
+Para filtrar fechas la lógica es similar, solo debemos escribir las fechas en formato yyyy-mm-dd, entre comillas.
+
+Para continuar con las siguientes funciones, es importante comenzar a familiarizarse con el operador `%>%`. Este operador nos ayuda a concatenar funciones de `dplyr`, lo cual nos será bastante útil más adelante.
+
+## `Dplyr`: La función `arrange()`
+
+Imaginemos que queremos hacer un top 10 con los países que han tenido una expectativa de vida mayor en toda base de datos, ¿cómo podemos hacer esto? Podríamos usar la función `arrange()`, la cual nos reordena los valores de nuestra base de datos, considerando en específico alguna variable de ella. Si consideramos una variable numérica, nos va a reordenar de menor a mayor nuestros datos, pero si consideramos una variable de tipo caracter, entonces nos va a reordenar alfabéticamente, de la Z a la A. Veamos un ejemplo de ello:
+
+```{r dpl-ex-arr, message=FALSE, warning=FALSE, exercise=TRUE}
+# Cargamos el paquete y los datos
+library(dplyr)
+library(gapminder)
+data("gapminder")
+
+
+# Reordenamos por orden alfabético
+arrange(gapminder, country)
+
+# Reordenamos por orden numérico
+arrange(gapminder, pop)
+```
+
+
+¿Y si quisieramos ordenar nuestros datos de manera descendente para poder obtener un top de aquellos en los que la esperanza de vida ha sido mayor? Solo debemos incluir la función `desc()`, tal que:
+
+```{r dpl-ex-arr-1, message=FALSE, warning=FALSE, exercise=TRUE}
+# Cargamos el paquete y los datos
+library(dplyr)
+library(gapminder)
+data("gapminder")
+
+# Reordenamos de manera descendente
+arrange(gapminder, desc(lifeExp))
+```
+
+Ahora es tu turno. De los datos de `gapminder` obtén el PIB per cápita (la variable `gdpPercap`) de los países en forma descendente. Te ayudaré cargando los datos:
+
+```{r dpl-ex-arr-2, message=FALSE, warning=FALSE, exercise=TRUE}
+# Cargamos el paquete y los datos
+library(dplyr)
+library(gapminder)
+data("gapminder")
+
+```
+
+
+## `Dplyr`: La función `mutate()`
+
+Imagina la siguiente situación: Supongamos que quiero saber cual ha sido el PIB de los países utilizando la base de `gapminder`. Para calcular esto simplemente debemos multiplicar `gdpPercap` con la variable `pop`. Si qusieramos hacer este cálculo y unirlo a la base de datos original solo con funciones base de R, podría ser un poco tedioso, ya que tendríamos que crear un objeto, para después crear otro data frame que incluya los datos que hemos creado. Para nuestra fortuna, tenemos a la función `mutate()`, la cual nos ahorrará bastante trabajo al hacer esto. Esta función nos ayuda a crear variables nuevas. Para utilizar `mutate()` simplemente debemos asignar el nombre a la nueva variable (el que nosotros queramos, no importa) y decirle qué es lo que queremos que contenga. Veamos un ejemplo de ello, calculando el PIB de todos los países como lo mencioné al principio:
+
+```{r dpl-ex-mutate, message=FALSE, warning=FALSE, exercise=TRUE}
+# Cargamos el paquete y los datos
+library(dplyr)
+library(gapminder)
+data("gapminder")
+
+# Creamos la nueva variable
+mutate(gapminder, PIB_pais = pop * gdpPercap)
+```
+
+En realidad es una función muy sencilla de utilizar, pero a la vez muy poderosa, ya que podemos hacer una serie de cálculos aún más grande. Prácticamente, el límite de la función lo tiene nuestra imaginación. ¿Qué tal siquisieramos calcular la raíz cuadrada del PIB per cápita y multiplicarla por 5? Bueno, esto lo podemos hacer de la siguiente manera:
+
+```{r dpl-ex-mutate-1, message=FALSE, warning=FALSE, exercise=TRUE}
+# Cargamos el paquete y los datos
+library(dplyr)
+library(gapminder)
+data("gapminder")
+
+# Creamos la nueva variable
+mutate(gapminder, raiz_pibper = sqrt(gdpPercap)*5)
+```
+
+
+Lo único que debes considerar al escribir operaciones para calcular un valor es colocar bien los paréntesis, ya que la jerarquía de operaciones se sigue respetando en R.
+
+Ahora te toca a ti, multiplica la esperanza de vida `lifeExp` por la población `pop` y al resultado divídelo entre 2. Te ayudaré cargando los datos:
+
+```{r dpl-ex-mutate-2, message=FALSE, warning=FALSE, exercise=TRUE}
+# Cargamos el paquete y los datos
+library(dplyr)
+library(gapminder)
+data("gapminder")
+
+```
+
+
+
+## `Dplyr`: La función `summarise()`
+
+Esta función es, probablemente, la más interesante de todas y la que más vas a utilizar a lo largo de tu carrera profesional. Para enseñarte todo su potencial también te hablaré de la función `group_by()`, pero un poco más adelante, por el momento empecemos explicando a `summarise()`, ¿para qué funciona? Lo que hace es darnos resúmenes estadísticos de nuestras variables, por ejemplo, una media, la mediana, varianza, etc. Para utilizarla, solo debemos indicarle a la función con qué datos y variable queremos trabajar, así como el estadístico que queremos obtener, por ejemplo, si quisieramos calcular la media del PIB per cápita, esto lo podemos hacer de la siguiente manera:
+
+```{r dpl-ex-summarise, message=FALSE, warning=FALSE, exercise=TRUE}
+# Cargamos el paquete y los datos
+library(dplyr)
+library(gapminder)
+data("gapminder")
+
+# Generamos una media de los datos
+summarise(gapminder, mean(gdpPercap))
+```
+
+En este punto te debes estar preguntando algo como ¿no sería más sencillo solo utilizar la función `mean()` para obtener la media? Y puede que tengas razón, pero el verdadero potencial de `summarise()` rapida en combinarlo con otras funciones. Imagina la siguiente situación: Trabajas en una empresa de análisis económico y pronósticos, la cual te pide que obtengas la media del PIB per cápita de todos los países registrados en `gapminder` para todos los años en los que haya registro de ello. Podríamos hacerlo de manera manual, filtrando datos por países y obteniendo la media, o podríamos ahorrarnos mucho trabajo con la función `group_by()`. Esta función lo que hace es generar grupos pequeños de información que compartan características en común entre ellos. Si le dijeramos a la función que nos agrupara por países y después calculamos la media usando `summarise()`, entonces nos devolverá la media para cada grupo, siendo en este caso cada país. En este punto estaremos usando dos funciones de `Dplyr` a la vez, por lo que pondrémos en práctica de igual manera el operador `%>%`, el cual nos ayudará a concatenar funciones, por lo que no será necesario escribir el nombre de la base de datos dentro de las funciones que vamos a usar, bastará con escribir el nombre de las variables. Vamos a un ejemplo:
+
+```{r dpl-ex-summ-group, message=FALSE, warning=FALSE, exercise=TRUE}
+# Cargamos el paquete y los datos
+library(dplyr)
+library(gapminder)
+data("gapminder")
+
+# Generamos una media de los datos
+gapminder %>% 
+  group_by(country) %>% 
+  summarise(Media = mean(gdpPercap))
+```
+
+¿Y si quisieramos obtener la media de la esperanza de vida por año? Esto lo podemos hacer de la siguiente manera:
+
+```{r dpl-ex-summ-group-1, message=FALSE, warning=FALSE, exercise=TRUE}
+# Cargamos el paquete y los datos
+library(dplyr)
+library(gapminder)
+data("gapminder")
+
+# Generamos una media de los datos
+gapminder %>% 
+  group_by(year) %>% 
+  summarise(Media = mean(gdpPercap))
+```
+
+Excelente, ahora te toca a ti. Obten la media de la esperanza de vida por continente. Te ayudaré con el código cargando los datos:
+
+```{r dpl-ex-summ-group-2, message=FALSE, warning=FALSE, exercise=TRUE}
+# Cargamos el paquete y los datos
+library(dplyr)
+library(gapminder)
+data("gapminder")
+
+```
+
+
+## Repaso de lo aprendido
+
+*Si ya llegaste hasta aquí, entonces te felicito, porque tuviste la paciencia para aprender algo nuevo que puede serte útil para tu vida profesional, ¡sigue así!*
+
+Para repasar lo aprendido, quiero que intentes lo siguiente: Esta vez carga los datos de `gapminder`, después, crea una nueva variable que contenga a la esperanza de vida multiplicada por 100. Finalmente, obten una media de los datos por año, PERO, solo considerando años después de 1980. Te daré un tip: Comienza filtrando la base de datos, el resúmen estadístico déjalo para el final.
+
+```{r dpl-ejercico-final, message=FALSE, warning=FALSE, exercise=TRUE}
+
+
+```
+
+
+### Preguntas de repaso
+
+```{r quiz}
+quiz(
+  question("¿Para qué sirve la función `mutate`?",
+    answer("Para sumar datos"),
+    answer("Para obtener la media"),
+    answer("Para crear una nueva variable", correct = TRUE),
+    answer("Para transponer los datos")
+  ),
+  question("¿Cómo podemos obtener datos para un valor en específico?",
+    answer("Filtrando con ==", correct = TRUE),
+    answer("Obteniendo la media"),
+    answer("Filtrando con <"),
+    answer("Filtrando con <=")
+  ),
+  question("¿Con qué función obtengo la media de mis datos agrupados por algúna característica?",
+    answer("group_by + summarise + mean", correct = TRUE),
+    answer("mutate + summarise + mean"),
+    answer("mean"),
+    answer("group_by + mean")
+  ),
+  question("¿Se pueden combinar las funciones `filter` y `summarise`?",
+    answer("No"),
+    answer("Si", correct = TRUE),
+    answer("Solo en casos específicos"),
+    answer("Solo si se usa otra función")
+  )
+)
+```
+
