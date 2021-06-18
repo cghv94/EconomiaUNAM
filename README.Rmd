@@ -23,7 +23,7 @@ knitr::opts_chunk$set(
 El objetivo del paquete EconomiaUNAM es:
 
  - Desarrollar tutoriales en español para enseñar R en las clases de la FE UNAM
- - Ofrecer funciones que simplifiquen la enseñanza de temas complicados de matemáticas, estadística y econometría
+ - Ofrecer funciones y tutoriales que simplifiquen la enseñanza de temas complicados de matemáticas, estadística y econometría
  - Tener un conjunto de herramientas que faciliten el aprendizaje de R para todos los estudiantes de la Facultad de Economía
 
 

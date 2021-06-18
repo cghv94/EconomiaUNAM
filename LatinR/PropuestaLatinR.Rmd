@@ -1,5 +1,5 @@
 ---
-type: poster   # List of types is available using latinr_types()
+type: oral   # List of types is available using latinr_types()
 language: spanish
 title: "Experiencias en la enseñanza de R en la Facultad de Economía, UNAM"
 topics:
@@ -24,8 +24,6 @@ keywords:
   - "enseñanza de R"
   - "matemáticas"
   - "desarrollo de paquetes"
-abstract: |
-  Abstract goes here!
 bibliography: latinr_bibliography.bib
 biblio-style: apalike-es   
 output: 
@@ -47,9 +45,17 @@ latinr::latinr_checks(rmarkdown::metadata, params$check_is_error)
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+### Objetivos del paquete `EconomiaUNAM`
+
+  - Desarrollar tutoriales en español para enseñar R en las clases de la FE en la UNAM
+  - Ofrecer funciones y tutoriales que simplifiquen la enseñanza de temas complicados de matemáticas, estadística y econometría
+  - Tener un conjunto de herramientas que faciliten el aprendizaje de R para todos los estudiantes de la Facultad de Economía
+
 Ante la rapida adopción de R en el contexto academico e industrial y el desarrollo de nuevos paquetes resulta hoy posible pararse en los hombros de gigantes para enseñar R mucho más fácil que en el pasado. Esto gracias al desarrollo del paquete `learnr`, el cual simplifica el proceso de enseñanza. Al utilizar este paquete como base, nuestro interés para elaborar el paquete `EconomiaUNAM` es diseñar una serie de tutoriales que ayuden a los alumnos a aprender R, al mismo tiempo que se enriquece el proceso pedagógico.
 
 Desarrollar paquetes en R se ha vuelta también más fácil con el uso y documentación de paquetes constructores de paquetes, apoyo de la comunidad de R y el libro de R Packages de Hadley Wickham.
+
+## Desarrollo futuro
 
 Nuestro proyecto se encuentra en maduración y hemos recibido muy buena retroalimentación por parte de los alumnos. Esto gracias que al final de cada tutorial podemos poner un hipervínculo hacia un formulario de google. Algunas de las cosas que hemos aprendido en el camino son........
 
