@@ -1,17 +1,28 @@
 Package: EconomiaUNAM
 Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1.0.9
-Author: Who wrote it
-Title: Tutoriales para aprender R en la FE,UNAM
-Author: Cesar Gerardo Hernández Vargas y Daniel Amieva Rodríguez
+Title: Tutoriales para aprender R en la FE UNAM
+Version: 0.1.0.9000
+Authors@R: c(
+  person("Cesar", "Gerardo Hernández Vargas", email = "cghv94@outlook.es",
+  role = c("aut", "cre")),
+  person("Daniel", "Amieva",
+  role = c("aut")),
+  person("Jorge", "Valente Hernández Castelan",
+  role = c("aut")),
+  person("Vianney", "América Velazquez Abrego", 
+  role = c("ctb"))
+  )
 Maintainer: The package maintainer <yourself@somewhere.net>
-Description: 
-    El objetivo del paquete EconomiaUNAM es: Desarrollar tutoriales en español para enseñar R en las clases de la FE UNAM, Ofrecer funciones que simplifiquen la enseñanza de temas complicados de matemáticas, estadística y econometría, ener un conjunto de herramientas que faciliten el aprendizaje de R para todos los estudiantes de la Facultad de Economía
-License: What license is it under?
+Description: El objetivo del paquete EconomiaUNAM es: Desarrollar tutoriales
+    en español para enseñar R en las clases de la FE UNAM,
+    Ofrecer funciones que simplifiquen la enseñanza de temas
+    complicados de matemáticas, estadística y econometría,
+    Tener un conjunto de herramientas que faciliten el aprendizaje
+    de R para todos los estudiantes de la Facultad de Economía
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-Depends: R (>= 1.3), learnr
+Depends: R (>= 1.3), learnr, rstudioapi
 Suggests: 
     shiny,
     tidyverse
@@ -20,6 +31,5 @@ Imports:
     stats,
     ggplot2,
     magrittr,
-    dplyr,
-    learnr
+    dplyr
 Roxygen: list(markdown = TRUE)

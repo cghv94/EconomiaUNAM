@@ -20,19 +20,19 @@ El objetivo del paquete EconomiaUNAM es:
 
 ## Tutoriales Planeados y status
 
--   [ ] 1. Medidas de Tendencia central y Dispersión
--   [ ] 2. Medidas de Dispersión
--   [ ] 3. Medidas de forma
--   [ ] 4. Distribuciones
--   [ ] 5. Regla empírica
--   [ ] 5. Introducción a Regresiones Lineales
+-   [x] 1. Vectores ✅
+-   [x] 2. Matrices y arreglos ✅
+-   [x] 3. Introducción a dplyr ✅
+-   [ ] 4. Medidas de dispersión ✅
+-   [ ] 5. Medidas de forma ✅
+-   [ ] 6. Regla empírica ❌
+-   [ ] 7. Introducción a Regresiones Lineales y pruebas de hipótesis
 
 ## Instalación
 
 Para instalar este paquete a través de Github usar:
 
 ``` r
-# install.packages("devtools")
 devtools::install_github("cghv94/EconomiaUNAM")
 ```
 

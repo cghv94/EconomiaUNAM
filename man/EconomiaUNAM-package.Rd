@@ -4,9 +4,29 @@
 \name{EconomiaUNAM-package}
 \alias{EconomiaUNAM}
 \alias{EconomiaUNAM-package}
-\title{EconomiaUNAM: What the Package Does (Title Case)}
+\title{EconomiaUNAM: Tutoriales para aprender R en la FE UNAM}
 \description{
-More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+El objetivo del paquete EconomiaUNAM es: 
+    Desarrollar tutoriales en español para enseñar R 
+    en las clases de la FE UNAM,
+    Ofrecer funciones que simplifiquen la enseñanza de temas
+    complicados de matemáticas, estadística y econometría,
+    Tener un conjunto de herramientas que faciliten el aprendizaje
+    de R para todos los estudiantes de la Facultad de Economía
+}
+\author{
+\strong{Maintainer}: Cesár Wickham \email{hadley@rstudio.com}
+
+Authors:
+\itemize{
+  \item Daniel Amieva
+  \item Jorge Hernández
+}
+
+Other contributors:
+\itemize{
+  \item Vianney Wickham [contributor]
+}
+
 }
 \keyword{internal}

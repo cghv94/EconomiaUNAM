@@ -1,0 +1,58 @@
+---
+type: poster   # List of types is available using latinr_types()
+language: spanish
+title: "Experiencias en la enseñanza de R en la Facultad de Economía, UNAM"
+topics:
+- 5
+- 3
+authors:
+  - first_name: Cesar
+    last_name: Hernández
+    email: cghv94@outlook.es   # One author's email has to match the email registered in EasyChair.
+    country: mx  
+    affiliation: "Universidad Nacional Autónoma de México"
+    url: "https://github.com/cghv94/EconomiaUNAM"  # Optional 
+    corresponding: true
+  - first_name: Jorge 
+    last_name: Hernández
+    email: eljorgehdz@gmail.com
+    country: mx
+    affiliation: "Universidad Nacional Autónoma de México"
+    corresponding: false
+keywords: 
+  - "educación superior"
+  - "enseñanza de R"
+  - "matemáticas"
+  - "desarrollo de paquetes"
+abstract: |
+  Abstract goes here!
+bibliography: latinr_bibliography.bib
+biblio-style: apalike-es   
+output: 
+    latinr::latinr_article:
+      keep_tex: false
+      anonymise: true
+params: 
+  check_is_error: FALSE
+---
+
+
+```{r submission-checks, echo=FALSE, warning=TRUE}
+# Runs some basic checks in metadata. To disable, set check_is_error to FALSE
+latinr::latinr_checks(rmarkdown::metadata, params$check_is_error)
+```
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Ante la rapida adopción de R en el contexto academico e industrial y el desarrollo de nuevos paquetes resulta hoy posible pararse en los hombros de gigantes para enseñar R mucho más fácil que en el pasado. Esto gracias al desarrollo del paquete `learnr`, el cual simplifica el proceso de enseñanza. Al utilizar este paquete como base, nuestro interés para elaborar el paquete `EconomiaUNAM` es diseñar una serie de tutoriales que ayuden a los alumnos a aprender R, al mismo tiempo que se enriquece el proceso pedagógico.
+
+Desarrollar paquetes en R se ha vuelta también más fácil con el uso y documentación de paquetes constructores de paquetes, apoyo de la comunidad de R y el libro de R Packages de Hadley Wickham.
+
+Nuestro proyecto se encuentra en maduración y hemos recibido muy buena retroalimentación por parte de los alumnos. Esto gracias que al final de cada tutorial podemos poner un hipervínculo hacia un formulario de google. Algunas de las cosas que hemos aprendido en el camino son........
+
+Nos encontramos en comunicación con varios maestros de la facultad interesados en enseñar y aprender R y esperamos que más maestros se nos unan para seguir construyendo juntos este paquete. El interés último es contar con herramientas educativas que todos los estudiantes y maestros puedan utilizar para enriquecer sus clases. De tal forma que con el conocimiento adquirido en R los estudiantes apreciarán la sencillez y potencial del lenguaje de programación y así estarán mejor preparados para la academia y el mercado laboral.
+
+

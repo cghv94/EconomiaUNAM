@@ -1,2 +1,7 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^Propuesta-contenido\.txt$
+^README\.Rmd$
+^logos$
+^LICENSE\.md$
+^LatinR$
