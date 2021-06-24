@@ -1,0 +1,244 @@
+---
+title: "Modelo clásico de regresión lineal. Primera parte."
+subtitle: "[Facultad de Economía, UNAM](http://economia.unam.mx)\n"
+author: "[César Gerardo Hernández Vargas](https://cghv94.github.io/)\n, [América Vianney Velásquez Abrego](https://github.com/Vianney98)\n" 
+date: "09/06/2021\n\n"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+  ```{r setup, include=FALSE}
+library(learnr)
+```
+
+## 1.¿Qué es el Modelo Clásico de Regresión Lineal 
+
+<center>
+  <img src="https://www.bing.com/images/blob?bcid=Tj5dOudj7OQCcw">
+  </center>
+ <p style="text-align: justify">Para entender el modelo clásico de regresión lineal (MCRL) debemos entender los supuestos en los que descansa.  <p style="text-align: justify">**1° Supuesto:** El modelo sigue una tendencia lineal, es decir, tiene como base los promedios de las variables y sigue esa tendencia. 
+ <p style="text-align: justify">**2° Supuesto:** Los valores de 'X' siguen una secuancia lógica, pues guardan una relación directa o inversamente proporcional. 
+ <p style="text-align: justify">**3° Supuesto:** Los residuos se comportan como en una distribución normal en donde se tiende a 0. Si los residuos no tienden a 0 se descarta el modelo,p ues deja de comportarse como una distribución normal. 
+ <p style="text-align: justify">**4° Supuesto:** El modelo es homocedastico, pues los residuos se comportan de manera similar dentro de los datos, además, la varianza tiende a 0. En caso contrario, es decir, que el modelo sea heterocedastico (Que la varianza de una variable sea distinta de las demás varianzas, lo que provoca que los residuos tengan diferentes varianzas y los datos tengan mucha variación), se descarta. 
+ <p style="text-align: justify">**5° Supuesto:** Los residuos no deben tener auto correlación entre ellos. Para estp, la covarianza (relación entre las variables) debe ser igual a 0.
+ <p style="text-align: justify">**6° Supuesto:** La covarianza entre el residuo y el eje 'X' debe ser cero. 
+ <p style="text-align: justify">**7° Supuesto:** El número de observaciones debe ser mayor que el número de parámetros por estimar. 
+ <p style="text-align: justify">**8° Supuesto:** La varianza 'x' debe ser mayor a 0. <p style="text-align: justify">**9° Supuesto:** El modelo debe estar bien especificado, es decir, a mayor comportamiento de 'x', los datos se expanden. 
+ <p style="text-align: justify">**10° Supuesto:** No hay multicolinealidad perfecta, es decir, no existen relaciones perfectamente lineales entre las variables explicativas. 
+ 
+## 2. ¿Para qué sirve el MCRL?
+ <p style="text-align: justify"> Una de los principales usos del MCRL es el ***forecasting***. 
+  <p style="text-align: justify"> El ***forecasting*** es el proceso por el cual se pueden realizar predicciones a futuro con base en un análisis estadístico con datos y tendencias observadas de manera histórica.
+  <p style="text-align: justify"> Para identificar un buen ***forecasting*** este debe tener:
+  <p style="text-align: justify">**Tendencias:** Incrementos y/o disminuciones en nuestros datos. 
+ <p style="text-align: justify">**Estacionalidad:** Periodos concretos.
+ <p style="text-align: justify">**Puntos de inflexión:** Cambios en los valores de los datos. 
+
+## 3. ¿Cómo implementar el MCRL?
+
+<p style="text-align: justify">Existe una serie de pasos a seguir para poder conseguir implementar nuestro modelo. 
+<p style="text-align: justify">**1. Definir nuestra hipótesis**
+<p style="text-align: justify">**2. Realizar un análisis exploratorio de datos**
+<p style="text-align: justify">**Realizar un análisis bivariado**
+<p style="text-align: justify">**Plantear una función de regresión**
+<p style="text-align: justify">**Ajustar el modelo de regresión**
+<p style="text-align: justify">Vamos a ejemplificar lo anterior. 
+<p style="text-align: center">**HIPÓTESIS**
+<p style="text-align: justify">**¿El pib de México está en función del PIB de EUA?**
+<p style="text-align: justify">Hipótesis nula:
+<p style="text-align: justify">*H~0~*= El PIB de México sí depende el PIB de EUA. 
+<p style="text-align: justify">*H~1~*= El PIB de México no depende el PIB de EUA. 
+<p style="text-align: center">**ANÁLISIS EXPLORATORIO DE DATOS (ANÁLISIS UNIVARIADO)**
+<p style="text-align: justify">*Medidas de tendencia central*
+<p style="text-align: justify">*Medidas de dispersión*
+<p style="text-align: justify">*Representación gráfica*
+<p style="text-align: justify">En este paso podemos utilizar Rstudio para hacer un análisis exploratorio de datos. 
+<p style="text-align: justify">Las paqueterías ***tidyverse***, ***DT*** y ***moments*** nos ayudarán a realizar este análisis. 
+<p style="text-align: justify">Vamos a descargar las librerías de la siguiente forma: 
+
+```{r}
+library(tidyverse)
+library(DT)
+library(moments)
+```
+<p style="text-align: justify">El banco de datos del Banco Mundial proporciona datos sobre el
+Producto Interno Bruto (PIB) de varios países.
+<p style="text-align: justify">La información sobre valores del **PIB en dólares constantes** a
+precios de 2010 está disponible en:https://databank.worldbank.org/indicator/NY.GDP.MKTP.CD/1ff4a498/Popular-Indicators
+<p style="text-align: justify">Para este ejemplo,
+podemos descargar los
+datos del PIB de México y
+el PIB de EUA de 1980 a
+2018 desde la liga:
+https://cghv94.github.io/
+gdp.csv
+<p style="text-align: justify">Para descargar la base de datos se debe hacer lo siguiente: 
+
+```{r}
+gdp <- read.csv("https://cghv94.github.io/gdp.csv")
+gdp
+```
+<p style="text-align: justify">Podemos realizar una gráfica del PIB de México utilizando **plot**. 
+
+
+```{r}
+plot(gdp$year, gdp$gdp_mx, type = "o", col = "green")
+```
+
+
+<p style="text-align: justify">Al igual que la gráfica del PIB estadounidense: 
+```{r}
+plot(gdp$year, gdp$gdp_us, type = "o", col = "blue")
+```
+<p style="text-align: justify">***Medidas de tendencia central*** 
+<p style="text-align: justify">**Moda:** El elemento que se repite más veces en la muestra.
+<p style="text-align: justify">**Mediana:** Si ordenamos los elementos de la muestra del menor al mayor, la mediana es el
+elemento que se encuentra a la mitad de los datos ordenados.
+<p style="text-align: justify">**Media:** La suma de todos los elementos de la muestra entre el número total de
+observaciones. Puede obtenerse mediante la fórmula:
+  <center>
+<img src="https://4.bp.blogspot.com/-5JZG3Q-mmWQ/TbJgVRC5_VI/AAAAAAAAAAc/g2jOEvorGjE/s1600/safsasfa.jpg">
+  </center>
+
+
+<p style="text-align: justify">***Frecuencias absolutas, frecuencias relativas y probabilidad clásica***
+<p style="text-align: justify">Muestra: 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5.
+
+
+| Elemento|Frecuencias absolutas = *f~j~*|Frecuencias relativas = *(f~j~)/n*| Probabilidad clásica|
+|:-:|:-:|:-:|:-:|
+|1.|2|2/20|10%|
+|2.|6|6/20|30%|
+|3.|3|3/20|15%|
+|4.|5|5/20|25%|
+|5.|4|4/20|20%|
+|**Sumatoria**|20|**20/20**|100%|
+|Cada uno de los elementos que aparecen en la muestra.|Cuenta del número de veces que aparece el elemento 𝑖 en la muestra.|La frecuencia absoluta del elemento 𝑖 dividida entre el número total de observaciones.|El cociente de la frecuencia absoluta del elemento 𝑖 dividida entre el número total de observaciones.|
+
+<p style="text-align: justify">***Medidas de dispersión***
+<center>
+  <img src="https://www.bing.com/images/blob?bcid=TnO6hbErMuUC3Q" width="750"/>
+  </center>
+
+<p style="text-align: justify">Con los datos anteriores podemos realizar el **análisis operatorio del PIB de México**
+
+```{r}
+resumen_mx <- rbind(Mínimo=min(gdp$gdp_mx), Máximo=max(gdp$gdp_mx), Mediana=median(gdp$gdp_mx), Media=mean(gdp$gdp_mx), Desviación=sd(gdp$gdp_mx), Varianza=var(gdp$gdp_mx), Asimetría=skewness(gdp$gdp_mx), Curtosis=kurtosis(gdp$gdp_mx))
+colnames(resumen_mx) <- "Valor"
+datatable(resumen_mx)
+```
+<p style="text-align: justify">Con los datos anteriores podemos realizar el **análisis operatorio del PIB de Estados Unidos**
+
+```{r}
+resumen_us <- rbind(Mínimo=min(gdp$gdp_us), Máximo=max(gdp$gdp_us), Mediana=median(gdp$gdp_us), Media=mean(gdp$gdp_us), Desviación=sd(gdp$gdp_us), Varianza=var(gdp$gdp_us), Asimetría=skewness(gdp$gdp_us), Curtosis=kurtosis(gdp$gdp_us))
+colnames(resumen_us) <- "Valor"
+datatable(resumen_us)
+```
+<p style="text-align: center">**DISTRIBUCIÓN NORMAL Y EMPÍRICA**
+<p style="text-align: justify">Decimos que una serie de datos se distribuyen de manera normal cuando el valor del coeficiente de asimetría es igual a 0 y el valor del coeficiente de curtosis es igual a 3. 
+  <center>
+  <img src="https://i.pinimg.com/474x/ef/5b/ee/ef5bee5da4bd9437ae3f51913dc6388f--normal-distribution-gre-math.jpg">
+  </center>
+<p style="text-align: justify">Cuando una serie de observaciones
+cumple con estas características, podemos afirmar que el 68.2% de los datos se agrupan a no más de una desviación estándar respecto al valor medio, el 95.4% de los datos a no mas de 2 deviaciones estándar y el 99.7% de los datos a no mas de 3 deviaciones estándar.   <center>
+  <img src="https://tradingcenter.files.wordpress.com/2009/11/distrib-normal3.jpg">
+  </center>
+
+<p style="text-align: center">**REPRESENTACIONES GRÁFICAS DE LA DISTRIBUCIÓN**
+<p style="text-align: justify">***Histograma (polígono de frecuencias)***
+ <center>
+  <img src="https://i.stack.imgur.com/89yVK.png" width="650"/>
+  </center>
+<p style="text-align: justify">***Diagrama de caja (boxplot)***
+ <center>
+  <img src="http://dataanalyticsedge.com/wp-content/uploads/2018/05/5.jpg">
+  </center>
+<p style="text-align: justify">***Ojiva (frcuencias relativas acumuladas)***
+ <center>
+  <img src="http://4.bp.blogspot.com/_DEstOaB5TDY/SMdtoWgJuqI/AAAAAAAAAFY/g3fvnIAQdpw/s400/3.png">
+  </center>
+<p style="text-align: justify">***Gráfica de dispersión***
+ <center>
+  <img src="https://www.bing.com/images/blob?bcid=TnJNs5enROYC2Q">
+  </center>
+
+<p style="text-align: justify">Si realizamos el histograma del PIB de México se debe hacer de la siguiente forma: 
+```{r}
+hist(gdp$gdp_mx, col = "green")
+```
+<p style="text-align: justify">Y si queremos realizar el histograma del PIB de Estados Unidos se debe hacer de la siguiente forma: 
+```{r}
+hist(gdp$gdp_us, col = "blue")
+```
+
+<p style="text-align: center">**ANÁLISIS BIVARIADO**
+<p style="text-align: justify">*a. Correlación y asociación lineal*
+<p style="text-align: justify">*b. MCRL mediante mínimos cuadrados ordinarios*
+<p style="text-align: justify">Seguimos con nuestro ejemplo. Realizamos un gráfico de dispersión entre el PIB de EUA y el PIB de México: 
+```{r}
+plot(gdp$gdp_us, gdp$gdp_mx, col = "purple")
+```
+<p style="text-align: justify">Es necesario conocer los siguientes conceptos:
+ <center>
+  <img src="https://www.bing.com/images/blob?bcid=The-3wGig-UCIQ" width="750">
+  </center>
+<p style="text-align: justify">**¿Cómo sabemos si hay asociación lineal?**
+<p style="text-align: justify">Para continuar con el código, vamos a buscar la asociación lineal de la siguiente forma: 
+```{r}
+asociacion_lineal <- rbind(Covarianza=cov(gdp$gdp_us, gdp$gdp_mx), Correlación=cor(gdp$gdp_us, gdp$gdp_mx), Determinación=(cor(gdp$gdp_us, gdp$gdp_mx))^2)
+colnames(asociacion_lineal) <- "Valor"
+datatable(asociacion_lineal)
+```
+<p style="text-align: justify">Podemos observar que el coeficiente de correlación es cercano a uno, así que existe evidencia estadística de una fuerte asociación lineal positiva entre el PIB de EAU y el PIB de México. 
+
+<p style="text-align: center">**MODELO CLÁSICO DE REGRESIÓN LINEAL**
+<p style="text-align: justify">*I. Planteamos la ecuación de la recta*
+<center>
+  <img src="https://www.bing.com/images/blob?bcid=TqvWlAC3LuUC7g">
+  </center>
+
+<p style="text-align: justify">*II. Replanteamos la ecuación como una función de regresión lineal*
+<center>
+  <img src="https://www.bing.com/images/blob?bcid=TqQRU671JeUC9A">
+  </center>
+  
+<p style="text-align: justify">*III. Sustituimos nuestras variables en la función de regresión lineal*
+<center>
+  <img src="https://www.bing.com/images/blob?bcid=TgUFGklzWuUC7A">
+  </center>
+  
+<p style="text-align: justify">*IV. Esta sería la versión final de nuestra regresión*
+<center>
+  <img src="https://www.bing.com/images/blob?bcid=TsNSQgGaQeUCJg" width="700">
+  </center>
+  
+<p style="text-align: center">**MODELO LINEAL SIMPLE**
+<p style="text-align: justify">Vamos a realizar nuestro modelo de regresión simple en R. 
+<center>
+  <img src="https://www.bing.com/images/blob?bcid=Tj-3dlZEtOUChQ">
+  </center>
+```{r}
+lm(gdp_mx ~ gdp_us, data = gdp)
+```
+<p style="text-align: justify">**Gráfica de dispersión con regresión lineal**
+```{r}
+plot(gdp$gdp_us, gdp$gdp_mx, col = "purple")
+abline(lm(gdp_mx ~ gdp_us, data = gdp), col = "red")
+```
+<p style="text-align: center">**RESUMEN ESTADÍSTICO DEL MODELO LINEAL SIMPLE**
+<p style="text-align: justify">Para obtener el resumen estadístico del modelo escribimos lo siguiente en nuestro código: 
+```{r}
+modelo <- lm(gdp_mx ~ gdp_us, data = gdp)
+summary(modelo)
+```
+
+<p style="text-align: justify">*Gráfica de dispersión con regresión lineal y suavizamiento de patrones*
+<p style="text-align: justify">Por último, realizamos la gráfica de dispersión con la regresión lineal: 
+```{r}
+ggplot(gdp, aes(gdp_us, gdp_mx)) + 
+  geom_point() + 
+  geom_smooth(method = "lm")
+```
+## 4. 
+
+## 5.
