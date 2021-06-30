@@ -239,6 +239,99 @@ ggplot(gdp, aes(gdp_us, gdp_mx)) +
   geom_point() + 
   geom_smooth(method = "lm")
 ```
-## 4. 
+## 5. Ejercicios
+<p style="text-align: justify">**Ejercicio 1**
 
-## 5.
+```{r ejercicio1, exercise=TRUE}
+# Texto1 para ejercicio
+
+```
+
+```{r ejercicio1-solution}
+# Texto 1 para ejercicio y solución
+
+```
+<p style="text-align: justify">**Ejercicio 2**
+
+```{r ejercicio2, exercise=TRUE}
+# Texto2 para ejercicio
+
+```
+
+```{r ejercicio2-solution}
+# Texto 2 para ejercicio y solución
+
+```
+<p style="text-align: justify">**Ejercicio 3**
+
+```{r ejercicio3, exercise=TRUE}
+# Texto3 para ejercicio
+
+```
+
+```{r ejercicio3-solution}
+# Texto 3 para ejercicio y solución
+
+```
+<p style="text-align: justify">**Ejercicio 4**
+
+```{r ejercicio4, exercise=TRUE}
+# Texto4 para ejercicio
+
+```
+
+```{r ejercicio4-solution}
+# Texto 4 para ejercicio y solución
+
+```
+<p style="text-align: justify">**Ejercicio 5**
+
+```{r ejercicio5, exercise=TRUE}
+# Texto5 para ejercicio
+
+```
+
+```{r ejercicio5-solution}
+# Texto 5 para ejercicio y solución
+
+```
+
+## 6. Preguntas
+**¿Qué he aprendido?**
+ 
+  <p style="text-align: justify">Ya hemos aprendido sobre las medidas de forma, ahora responde el cuestionario que se presenta a continuación...</p>
+ 
+```{r pregunta1, echo=FALSE}
+question("Pregunta 1 :D", answer("a1", correct = TRUE), answer("b1"), answer("c1"), random_answer_order = TRUE)
+```
+```{r pregunta2, echo=FALSE}
+question("Pregunta 2 :D", answer("a2", correct = TRUE), answer("b2"), answer("c2"), random_answer_order = TRUE)
+```
+```{r pregunta3, echo=FALSE}
+question("Pregunta 3 :D", answer("a3"), answer("b3"), answer("c3",correct = TRUE), random_answer_order = TRUE)
+```
+```{r pregunta4, echo=FALSE}
+question("Pregunta 4 :D", answer("a4", correct = TRUE), answer("b4"), answer("c4"), random_answer_order = TRUE)
+```
+```{r pregunta5, echo=FALSE}
+question("Pregunta 5 :D", answer("a5"), answer("b5", correct = TRUE), answer("c5"), random_answer_order = TRUE)
+```
+
+## 7. Reflexiones finales
+ **¿Qué aprendimos en esta lección?**
+```{r checkbox, echo=FALSE}
+question_checkbox("Aquí va la pregunta",
+  answer("Esta es la respuesta correcta", correct = TRUE, message = "Muchas felicidades, si entendiste el tema 😁"),
+  answer("Esta es la respuesta incorrecta 1'", message = "Debes repasar el tema"),
+  answer("Esta es la respuesta incorrecta 2", message = "Debes repasar el tema"),
+  answer("Esta es la respuesta incorrecta 3", message = "Debes repasar el tema"),
+  random_answer_order = TRUE,
+  allow_retry = TRUE,
+  try_again = "Try again"
+)
+```
+<p style="text-align: justify">¡Felicidades, ahora sabes un poco más sobre las medidas de forma!</p>
+ 
+<p style="text-align: justify">**Referencias.**
+<p style="text-align: justify">• Moreno, P., Rodríguez Poo, J. M., Soberón, A.   (s.f.). *Tema 2: El Modelo de Regresión Lineal Simple*. Universidad de Cantabria. https://ocw.unican.es/pluginfile.php/1127/course/section/1352/Ppt_Ch2_G942_14-15.pdf
+<p style="text-align: justify">• El arte de la econometría. (2013). *Supuestos de la regresión clásica lineal*. http://aprendiendoeconometria.blogspot.com/2013/06/supuestos-del-modelo-clasico-de.html
