@@ -7,9 +7,8 @@ output: learnr::tutorial
 runtime: shiny_prerendered
 ---
   
-```{r setup, include=FALSE}
+  ```{r setup, include=FALSE}
 library(learnr)
-library(moments)
 ```
 
 ## 1. Distribución normal
@@ -17,6 +16,7 @@ library(moments)
  <p style="text-align: justify"> La distribución normal es la forma en la que las desviaciones con respecto a la media establecen valores para poder estimar el porcentaje de las observaciones de los datos formando una especie de campana. Este tipo de distribución ayuda a crear una aproximación de una variable aleatoria a una situación ideal. </p>
  
 ```{r}
+library(moments)
 normal <- rnorm(10000) 
 hist(normal, probability = T) 
 lines(density(normal), col = "red", lwd=3)
