@@ -1,0 +1,304 @@
+---
+title: "Medidas de forma"
+subtitle: "[Facultad de Economía, UNAM](http://economia.unam.mx)\n"
+author: "[César Gerardo Hernández Vargas](https://cghv94.github.io/)\n, [América Vianney Velásquez Abrego](https://github.com/Vianney98)\n" 
+date: "27/06/2021\n\n"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+  
+  ```{r setup, include=FALSE}
+library(learnr)
+```
+
+## 1. Distribución normal
+
+ <p style="text-align: justify"> La distribución normal es la forma en la que las desviaciones con respecto a la media establecen valores para poder estimar el porcentaje de las observaciones de los datos formando una especie de campana. Este tipo de distribución ayuda a crear una aproximación de una variable aleatoria a una situación ideal. 
+ 
+```{r}
+normal <- rnorm(10000) 
+hist(normal, probability = T) 
+lines(density(normal), col = "red", lwd=3)
+```
+  
+## 2. Coeficiente de asimetría
+ <p style="text-align: justify"> El coeficiente de asimetría permite mostrar el grado de simetría que existe en una distribución de una variable aleatoria. En términos matemáticos, el coeficiente mide la proximidad de los datos con respecto a la media. La fórmula que se usa es la siguiente, siendo *x* la media, *S^3* la desviación típica y *n~j~* la frecuencia absoluta de la variable.
+ 
+<center>
+  <img src="https://www.bing.com/images/blob?bcid=TlvJ3LpJPeoCgg">
+  </center>
+
+<center>
+  <img src="https://www.bing.com/images/blob?bcid=TkkHKbmscOwCvw" width = 700>
+  </center>
+
+<p style="text-align: justify">**DISTRIBUCIÓN SIMÉTRICA**
+<p style="text-align: justify">La *distribución simétrica* es cuando los valores del lado izquierda de la media se encuentran en igualdad numérica que los valores de la derecha, también cuando existe el mismo número de desviaciones positivas y negativas. 
+<center>
+  <img src="https://www.bing.com/images/blob?bcid=ThPG7rUwd-wCHA">
+  </center>
+
+```{r}
+simetrica <- rnorm(10000) 
+hist(simetrica, probability = T) 
+lines(density(simetrica), col = "red", lwd=3)
+
+```
+<p style="text-align: justify">*Coeficiente*
+```{r}
+## skewness(simetrica)
+## [1] -0.03843523
+
+```
+<p style="text-align: justify">*Media y mediana*
+<p style="text-align: justify">Obtendremos la media y mediana. 
+```{r}
+data.frame(Mediana = median(simetrica), Media = mean(simetrica))
+```
+<p style="text-align: justify">*Histograma con línea de densidad*
+
+```{r}
+hist(simetrica, probability = T) 
+lines(density(simetrica), col = "red", lwd=3)
+abline(v = median(simetrica), col="green")
+abline(v = mean(simetrica), col="blue")
+```
+
+
+<p style="text-align: justify">***Asimetría positiva:*** La asimetría positiva se da cuando la media obtenida es mayor que la moda. Cuando esto se da, la gráfica se inclina de lado izquierdo. 
+<center>
+  <img src="https://www.bing.com/images/blob?bcid=TnC-jL2X-uwCjg" width="700"/>
+  </center>
+```{r}
+asimetria_positiva <- rnbinom(10000, 10, .5) 
+hist(asimetria_positiva, probability = T) 
+lines(density(asimetria_positiva), col = "red", lwd=3)
+```
+<p style="text-align: justify">*Coeficiente*
+```{r}
+##skewness(asimetria_positiva) 
+## [1] 0.736735
+```
+<p style="text-align: justify">*Moda y mediana*
+```{r}
+data.frame(Mediana = median(asimetria_positiva), Media = mean(asimetria_positiva))
+
+```
+<p style="text-align: justify">*Histograma*
+
+```{r}
+hist(asimetria_positiva, probability = T) 
+lines(density(asimetria_positiva), col = "red", lwd=3)
+abline(v = median(asimetria_positiva), col="green")
+abline(v = mean(asimetria_positiva), col="blue")
+```
+
+<p style="text-align: justify">***Asimetría negativa:*** La asimetría negativa implica que la media es menor que la moda obtenida. La gráfica se inclina hacia derecha. 
+
+<center>
+  <img src="https://www.bing.com/images/blob?bcid=TtRS14YlIOwCAg" width="700"/>
+  </center>
+
+```{r}
+asimetria_negativa <- -asimetria_positiva 
+hist(asimetria_negativa, probability = T) 
+lines(density(asimetria_negativa), col = "red", lwd=3)
+
+```
+
+<p style="text-align: justify">*Coeficiente*
+```{r}
+##skewness(asimetria_negativa)
+## [1] -0.736735
+```
+<p style="text-align: justify">*Moda y mediana*
+```{r}
+data.frame(Mediana = median(asimetria_negativa), Media = mean(asimetria_negativa))
+
+```
+<p style="text-align: justify">*Histograma con línea de densidad*
+
+```{r}
+hist(asimetria_negativa, probability = T) 
+lines(density(asimetria_negativa), col = "red", lwd=3)
+abline(v = median(asimetria_negativa), col="green")
+abline(v = mean(asimetria_negativa), col="blue")
+```
+## 3. Coeficiente de curtosis
+ <p style="text-align: justify"> Es una medida de forma que permite medir que tán aplastada o alargada se encuentra la curva de la distribución. La fórmula para obtener la curtosis es muy similar a la utilizada para obtener la asimetría, sin embargo, la diferencia entre cada elemento x y la media se elevará a la cuarta potencia y al resultado se le resta 3 debido a que se habla de una curtosis de una distribución normal. 
+ 
+<center>
+  <img src="https://www.bing.com/images/blob?bcid=To9RPdstYuoCuA">
+  </center>
+  
+ <p style="text-align: justify">***Distribución mesocúrtica:*** La distribución mesocúrtica se obtiene cuando la curtosis es igual a cero, o bien, se tiene una distribución normal. 
+ 
+```{r}
+mesocurtica <- rnorm(10000) 
+hist(mesocurtica, probability = T) 
+lines(density(mesocurtica), col = "red", lwd=3)
+
+```
+ <p style="text-align: justify">*Coeficiente*
+```{r}
+## kurtosis(mesocurtica)
+## [1] 2.987724
+```
+
+ <p style="text-align: justify">***Distribución leptocúrtica:*** La distribución leptocúrtica se obtiene cuando la curtosis resulta ser mayor a cero, gráficamente los datos se concentran más en la media, por lo que la curva se ve más alargada o puntiaguda. 
+ 
+ ```{r}
+leptocurtica <- c(rnorm(1000, -2, 4), rnorm(5000, 0, 2), rnorm(1000, 2, 4)) 
+hist(leptocurtica, probability = T) 
+lines(density(leptocurtica), col = "red", lwd=3)
+```
+ 
+ <p style="text-align: justify">*Coeficiente*
+```{r}
+## kurtosis(leptocurtica)
+## [1] 5.047751
+``` 
+ 
+ <p style="text-align: justify">***Distribución platicúrtica:*** La distribución platicúrtica es el resultado de una concentración muy baja de los datos en la media, es decir, que la curtosis resulta ser menor a cero. Gráficamente la forma de la curva es más aplastada, pues no existe una concentración de los datos. 
+
+ ```{r}
+platicurtica <- c(rnorm(1000, -2, 1), rnorm(1000, 0, 2), rnorm(1000, 2, 1)) 
+hist(platicurtica, probability = T) 
+lines(density(platicurtica), col = "red", lwd=3)
+```
+ 
+ <p style="text-align: justify">*Coeficiente*
+```{r}
+## kurtosis(platicurtica)
+## [1] 2.060813
+``` 
+  
+## 4. Ejemplo de la forma de deuda
+<p style="text-align: justify">Para este ejercicio vamos a importar los datos de la deuda de CDMX, y después haremos el resumen estadístico del mismo. 
+
+```{r}
+deuda <- read.csv("https://cghv94.github.io/deuda-cdmx.csv")
+summary(deuda)
+``` 
+<p style="text-align: justify"> Ahora podemos crear el histograma de la disposición inicial del crédito:
+```{r}
+hist(deuda$disposicion_inicial_credito) 
+``` 
+<p style="text-align: justify"> Ahora podemos obtener la media, moda y mediana. 
+```{r}
+median(deuda$disposicion_inicial_credito)
+mean(deuda$disposicion_inicial_credito)
+tail(sort(table(deuda$disposicion_inicial_credito)),1)
+``` 
+<p style="text-align: justify"> Ahora creamos el *Histograma con línea de densidad*
+```{r}
+hist(deuda$disposicion_inicial_credito, probability = T) 
+lines(density(deuda$disposicion_inicial_credito), col = "red", lwd=3)
+abline(v = median(deuda$disposicion_inicial_credito), col="green")
+abline(v = mean(deuda$disposicion_inicial_credito), col="blue")
+``` 
+<p style="text-align: justify">Y terminamos obteniendo el coeficiente de asimetría y la curtosis. 
+```{r}
+#skewness(deuda$disposicion_inicial_credito)
+## [1] 1.101619
+#kurtosis(deuda$disposicion_inicial_credito)
+## [1] 4.418813
+``` 
+
+## 5. Ejercicios
+<p style="text-align: justify">**Ejercicio 1**
+
+```{r ejercicio1, exercise=TRUE}
+# Texto1 para ejercicio
+
+```
+
+```{r ejercicio1-solution}
+# Texto 1 para ejercicio y solución
+
+```
+<p style="text-align: justify">**Ejercicio 2**
+
+```{r ejercicio2, exercise=TRUE}
+# Texto2 para ejercicio
+
+```
+
+```{r ejercicio2-solution}
+# Texto 2 para ejercicio y solución
+
+```
+<p style="text-align: justify">**Ejercicio 3**
+
+```{r ejercicio3, exercise=TRUE}
+# Texto3 para ejercicio
+
+```
+
+```{r ejercicio3-solution}
+# Texto 3 para ejercicio y solución
+
+```
+<p style="text-align: justify">**Ejercicio 4**
+
+```{r ejercicio4, exercise=TRUE}
+# Texto4 para ejercicio
+
+```
+
+```{r ejercicio4-solution}
+# Texto 4 para ejercicio y solución
+
+```
+<p style="text-align: justify">**Ejercicio 5**
+
+```{r ejercicio5, exercise=TRUE}
+# Texto5 para ejercicio
+
+```
+
+```{r ejercicio5-solution}
+# Texto 5 para ejercicio y solución
+
+```
+
+## 6. Preguntas
+**¿Qué he aprendido?**
+ 
+  <p style="text-align: justify">Ya hemos aprendido sobre las medidas de forma, ahora responde el cuestionario que se presenta a continuación...</p>
+ 
+```{r pregunta1, echo=FALSE}
+question("Pregunta 1 :D", answer("a1", correct = TRUE), answer("b1"), answer("c1"), random_answer_order = TRUE)
+```
+```{r pregunta2, echo=FALSE}
+question("Pregunta 2 :D", answer("a2", correct = TRUE), answer("b2"), answer("c2"), random_answer_order = TRUE)
+```
+```{r pregunta3, echo=FALSE}
+question("Pregunta 3 :D", answer("a3"), answer("b3"), answer("c3",correct = TRUE), random_answer_order = TRUE)
+```
+```{r pregunta4, echo=FALSE}
+question("Pregunta 4 :D", answer("a4", correct = TRUE), answer("b4"), answer("c4"), random_answer_order = TRUE)
+```
+```{r pregunta5, echo=FALSE}
+question("Pregunta 5 :D", answer("a5"), answer("b5", correct = TRUE), answer("c5"), random_answer_order = TRUE)
+```
+
+## 7. Reflexiones finales
+ **¿Qué aprendimos en esta lección?**
+```{r checkbox, echo=FALSE}
+question_checkbox("Aquí va la pregunta",
+  answer("Esta es la respuesta correcta", correct = TRUE, message = "Muchas felicidades, si entendiste el tema 😁"),
+  answer("Esta es la respuesta incorrecta 1'", message = "Debes repasar el tema"),
+  answer("Esta es la respuesta incorrecta 2", message = "Debes repasar el tema"),
+  answer("Esta es la respuesta incorrecta 3", message = "Debes repasar el tema"),
+  random_answer_order = TRUE,
+  allow_retry = TRUE,
+  try_again = "Try again"
+)
+```
+<p style="text-align: justify">¡Felicidades, ahora sabes un poco más sobre las medidas de forma!</p>
+ 
+<p style="text-align: justify">**Referencias.**
+<p style="text-align: justify">•	Anderson, D., Sweeney, D., Williams, T. (2008). Estadística para administración y economía. 10 ed. Cencage Learning. México. https://www.upg.mx/wp-content/uploads/2015/10/LIBRO-13-Estadistica-para-administracion-y-economia.pdf
+<p style="text-align: justify">•	Requena, B. (2014). Asimetría y curtosis. https://www.universoformulas.com/estadistica/descriptiva/asimetria-curtosis/
+<p style="text-align: justify">•	Rodó, P. (2019). Distribución normal. Economipedia. https://economipedia.com/definiciones/distribucion-normal.html
