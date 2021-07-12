@@ -1,33 +1,79 @@
 ---
-title: "Modelo clásico de regresión lineal. Primera parte."
+title: "\nModelo clásico de regresión lineal\n"
 subtitle: "[Facultad de Economía, UNAM](http://economia.unam.mx)\n"
-author: "[César Gerardo Hernández Vargas](https://cghv94.github.io/)\n, [América Vianney Velásquez Abrego](https://github.com/Vianney98)\n" 
-date: "09/06/2021\n\n"
+author: "[Cesar Hernández](https://cghv94.github.io/), [Vianney Velásquez](https://github.com/Vianney98)\n" 
+date: "09/06/2021\n"
 output: learnr::tutorial
 runtime: shiny_prerendered
 ---
 
-  ```{r setup, include=FALSE}
+<center>
+<div class="navbar">
+</br>
+<a href="https://github.com/cghv94/EconomiaUNAM"><img src="https://raw.githubusercontent.com/cghv94/EconomiaUNAM/main/logos/felogoOpt2.png" height="60"></a>
+<b><font size="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EconomiaUNAM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font></b>
+<a href="https://github.com/cghv94/EconomiaUNAM"><img src="https://raw.githubusercontent.com/cghv94/EconomiaUNAM/main/logos/felogoOpt2.png" height="60"></a>
+</div>
+</center>
+</br>
+
+```{r setup, include=FALSE}
 library(learnr)
 ```
 
-## 1.¿Qué es el Modelo Clásico de Regresión Lineal 
+## 1.¿Qué es el Modelo Clásico de Regresión Lineal?
 
 <center>
-  <img src="https://www.bing.com/images/blob?bcid=Tj5dOudj7OQCcw">
-  </center>
- <p style="text-align: justify">Para entender el modelo clásico de regresión lineal (MCRL) debemos entender los supuestos en los que descansa.  <p style="text-align: justify">**1° Supuesto:** El modelo sigue una tendencia lineal, es decir, tiene como base los promedios de las variables y sigue esa tendencia. 
- <p style="text-align: justify">**2° Supuesto:** Los valores de 'X' siguen una secuancia lógica, pues guardan una relación directa o inversamente proporcional. 
- <p style="text-align: justify">**3° Supuesto:** Los residuos se comportan como en una distribución normal en donde se tiende a 0. Si los residuos no tienden a 0 se descarta el modelo,p ues deja de comportarse como una distribución normal. 
- <p style="text-align: justify">**4° Supuesto:** El modelo es homocedastico, pues los residuos se comportan de manera similar dentro de los datos, además, la varianza tiende a 0. En caso contrario, es decir, que el modelo sea heterocedastico (Que la varianza de una variable sea distinta de las demás varianzas, lo que provoca que los residuos tengan diferentes varianzas y los datos tengan mucha variación), se descarta. 
- <p style="text-align: justify">**5° Supuesto:** Los residuos no deben tener auto correlación entre ellos. Para estp, la covarianza (relación entre las variables) debe ser igual a 0.
- <p style="text-align: justify">**6° Supuesto:** La covarianza entre el residuo y el eje 'X' debe ser cero. 
- <p style="text-align: justify">**7° Supuesto:** El número de observaciones debe ser mayor que el número de parámetros por estimar. 
- <p style="text-align: justify">**8° Supuesto:** La varianza 'x' debe ser mayor a 0. <p style="text-align: justify">**9° Supuesto:** El modelo debe estar bien especificado, es decir, a mayor comportamiento de 'x', los datos se expanden. 
- <p style="text-align: justify">**10° Supuesto:** No hay multicolinealidad perfecta, es decir, no existen relaciones perfectamente lineales entre las variables explicativas. 
- 
+<img src="https://www.bing.com/images/blob?bcid=Tj5dOudj7OQCcw">
+</center>
+
+</br>
+
+<p style="text-align: justify">Para entender el modelo clásico de regresión lineal (MCRL) debemos entender los supuestos en los que descansa.</p> 
+
+</br>
+
+<p style="text-align: justify">**1° Supuesto:** El modelo sigue una tendencia lineal, es decir, tiene como base los promedios de las variables y sigue esa tendencia.</p> 
+
+</br>
+
+<p style="text-align: justify">**2° Supuesto:** Los valores de 'X' siguen una secuancia lógica, pues guardan una relación directa o inversamente proporcional.</p> 
+
+</br>
+
+<p style="text-align: justify">**3° Supuesto:** Los residuos se comportan como en una distribución normal en donde se tiende a 0. Si los residuos no tienden a 0 se descarta el modelo,p ues deja de comportarse como una distribución normal.</p> 
+
+</br>
+
+<p style="text-align: justify">**4° Supuesto:** El modelo es homocedastico, pues los residuos se comportan de manera similar dentro de los datos, además, la varianza tiende a 0. En caso contrario, es decir, que el modelo sea heterocedastico (Que la varianza de una variable sea distinta de las demás varianzas, lo que provoca que los residuos tengan diferentes varianzas y los datos tengan mucha variación), se descarta.</p> 
+
+</br>
+
+<p style="text-align: justify">**5° Supuesto:** Los residuos no deben tener auto correlación entre ellos. Para estp, la covarianza (relación entre las variables) debe ser igual a 0.</p> 
+
+</br>
+
+<p style="text-align: justify">**6° Supuesto:** La covarianza entre el residuo y el eje 'X' debe ser cero.</p> 
+
+</br>
+
+<p style="text-align: justify">**7° Supuesto:** El número de observaciones debe ser mayor que el número de parámetros por estimar.</p> 
+
+</br>
+
+<p style="text-align: justify">**8° Supuesto:** La varianza 'x' debe ser mayor a 0.</p> 
+
+</br>
+
+<p style="text-align: justify">**9° Supuesto:** El modelo debe estar bien especificado, es decir, a mayor comportamiento de 'x', los datos se expanden.</p> 
+
+</br>
+
+<p style="text-align: justify">**10° Supuesto:** No hay multicolinealidad perfecta, es decir, no existen relaciones perfectamente lineales entre las variables explicativas.</p> 
+
 ## 2. ¿Para qué sirve el MCRL?
- <p style="text-align: justify"> Una de los principales usos del MCRL es el ***forecasting***. 
+
+<p style="text-align: justify"> Una de los principales usos del MCRL es el ***forecasting***. 
   <p style="text-align: justify"> El ***forecasting*** es el proceso por el cual se pueden realizar predicciones a futuro con base en un análisis estadístico con datos y tendencias observadas de manera histórica.
   <p style="text-align: justify"> Para identificar un buen ***forecasting*** este debe tener:
   <p style="text-align: justify">**Tendencias:** Incrementos y/o disminuciones en nuestros datos. 
@@ -239,7 +285,9 @@ ggplot(gdp, aes(gdp_us, gdp_mx)) +
   geom_point() + 
   geom_smooth(method = "lm")
 ```
-## 5. Ejercicios
+
+## 4. Ejercicios
+
 <p style="text-align: justify">**Ejercicio 1**
 
 ```{r ejercicio1, exercise=TRUE}
@@ -296,7 +344,8 @@ ggplot(gdp, aes(gdp_us, gdp_mx)) +
 
 ```
 
-## 6. Preguntas
+## 5. Preguntas
+
 **¿Qué he aprendido?**
  
   <p style="text-align: justify">Ya hemos aprendido sobre las medidas de forma, ahora responde el cuestionario que se presenta a continuación...</p>
@@ -317,8 +366,10 @@ question("Pregunta 4 :D", answer("a4", correct = TRUE), answer("b4"), answer("c4
 question("Pregunta 5 :D", answer("a5"), answer("b5", correct = TRUE), answer("c5"), random_answer_order = TRUE)
 ```
 
-## 7. Reflexiones finales
- **¿Qué aprendimos en esta lección?**
+## 6. Reflexiones finales
+
+**¿Qué aprendimos en esta lección?**
+
 ```{r checkbox, echo=FALSE}
 question_checkbox("Aquí va la pregunta",
   answer("Esta es la respuesta correcta", correct = TRUE, message = "Muchas felicidades, si entendiste el tema 😁"),
